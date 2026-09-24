@@ -1,0 +1,363 @@
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+
+/* =========================
+   MAIN
+========================= */
+
+
+/* =========================
+   TOPBAR
+========================= */
+
+
+/* =========================
+   CONTENT
+========================= */
+
+
+.page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.page-header h1 {
+    font-size: 27px;
+    margin-bottom: 7px;
+    color: #202124;
+}
+
+.page-header p {
+    font-size: 14px;
+    color: #777b82;
+    line-height: 1.6;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    border: 1px solid #dfe2e6;
+    color: #55585e;
+    padding: 11px 16px;
+    border-radius: 11px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.25s ease;
+}
+
+.back-btn:hover {
+    background: #f4f5f6;
+    transform: translateY(-1px);
+}
+
+/* =========================
+   FORM CARD
+========================= */
+
+.form-card {
+    background: #ffffff;
+    border: 1px solid #e6e8eb;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(30, 35, 40, 0.05);
+}
+
+.form-section-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #292b2f;
+    margin-bottom: 6px;
+}
+
+.form-section-desc {
+    color: #858990;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 26px;
+}
+
+.form-group {
+    margin-bottom: 21px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #3b3d42;
+    margin-bottom: 8px;
+}
+
+.required {
+    color: #e05252;
+}
+
+.form-control {
+    width: 100%;
+    border: 1px solid #dfe2e6;
+    background: #ffffff;
+    border-radius: 11px;
+    padding: 12px 14px;
+    font-size: 14px;
+    color: #303238;
+    outline: none;
+    transition: 0.25s ease;
+}
+
+.form-control:focus {
+    border-color: #8dcff2;
+    box-shadow: 0 0 0 4px rgba(141, 207, 242, 0.15);
+}
+
+textarea.form-control {
+    min-height: 135px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.form-help {
+    font-size: 11px;
+    color: #8b8e94;
+    margin-top: 7px;
+    line-height: 1.5;
+}
+
+/* =========================
+   UPLOAD
+========================= */
+
+.upload-area {
+    border: 2px dashed #cfd4d9;
+    border-radius: 15px;
+    padding: 28px;
+    text-align: center;
+    background: #fafbfc;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.upload-area:hover {
+    border-color: #8ccff2;
+    background: #f4fbff;
+}
+
+.upload-area.dragover {
+    border-color: #72c4ed;
+    background: #eefaff;
+}
+
+.upload-icon {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 13px;
+    border-radius: 16px;
+    background: #fff2b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+}
+
+.upload-area h3 {
+    font-size: 15px;
+    margin-bottom: 6px;
+    color: #35373c;
+}
+
+.upload-area p {
+    color: #858990;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.upload-area input[type="file"] {
+    display: none;
+}
+
+/* =========================
+   PREVIEW
+========================= */
+
+.preview-box {
+    display: none;
+    margin-top: 16px;
+    border: 1px solid #e2e5e8;
+    border-radius: 14px;
+    padding: 12px;
+    background: #fafbfc;
+}
+
+.preview-box.show {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.preview-image {
+    width: 110px;
+    height: 80px;
+    border-radius: 10px;
+    object-fit: cover;
+    background: #eeeeee;
+    flex-shrink: 0;
+}
+
+.preview-info {
+    min-width: 0;
+}
+
+.preview-info strong {
+    display: block;
+    font-size: 13px;
+    color: #35373b;
+    margin-bottom: 5px;
+    word-break: break-word;
+}
+
+.preview-info span {
+    display: block;
+    font-size: 11px;
+    color: #888b91;
+}
+
+/* =========================
+   ERROR
+========================= */
+
+.alert-error {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    background: #fff1f1;
+    border: 1px solid #ffd1d1;
+    color: #b53c3c;
+    padding: 14px 16px;
+    border-radius: 12px;
+    margin-bottom: 22px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.alert-icon {
+    font-size: 17px;
+    flex-shrink: 0;
+}
+
+/* =========================
+   FORM ACTION
+========================= */
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-top: 10px;
+    margin-top: 25px;
+    border-top: 1px solid #eceef0;
+}
+
+.btn {
+    border: none;
+    border-radius: 11px;
+    padding: 12px 19px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-cancel {
+    background: #f0f2f4;
+    color: #55585d;
+}
+
+.btn-cancel:hover {
+    background: #e4e7ea;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #ffe17c, #ffd35a);
+    color: #383838;
+    box-shadow: 0 7px 18px rgba(255, 210, 80, 0.25);
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 9px 22px rgba(255, 210, 80, 0.32);
+}
+
+/* =========================
+   OVERLAY
+========================= */
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+
+@media (max-width: 600px) {
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    .page-header {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    .page-header h1 {
+        font-size: 23px;
+    }
+
+    .back-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .form-card {
+        padding: 20px 16px;
+        border-radius: 15px;
+    }
+
+    .upload-area {
+        padding: 22px 14px;
+    }
+
+    .preview-image {
+        width: 90px;
+        height: 70px;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .form-actions .btn {
+        width: 100%;
+    }
+}

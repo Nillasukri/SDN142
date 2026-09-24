@@ -1,0 +1,465 @@
+/* =====================================================================
+   CSS BERSAMA HALAMAN PENGUNJUNG
+   assets/css/publik/layout.css
+   ---------------------------------------------------------------------
+   SEMUA gaya sidebar, menu, topbar, footer, dan warna dasar ada di sini.
+   File ini otomatis dipakai semua halaman lewat layouts/, jadi cukup
+   mengubah SATU file ini kalau mau mengubah tampilan bagian tersebut.
+   ===================================================================== */
+
+
+* { 
+
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+
+}
+
+
+html { 
+
+    scroll-behavior: smooth; 
+
+}
+
+
+body { 
+
+    font-family: "Poppins", sans-serif; 
+    color: #333; 
+    background: #fff; 
+    line-height: 1.6; 
+
+}
+
+
+a { 
+
+    text-decoration: none; 
+
+}
+
+
+.container { 
+
+    width: 90%; 
+    max-width: 1200px; 
+    margin: auto; 
+
+}
+
+
+.menu { 
+
+    display: flex; 
+    align-items: center; 
+    gap: 4px; 
+    list-style: none; 
+
+}
+
+
+.menu a { 
+
+    color: #444; 
+    font-size: 13px; 
+    font-weight: 500; 
+    padding: 10px 12px; 
+    border-radius: 8px; 
+    transition: 0.3s; 
+
+}
+
+
+.menu a:hover { 
+
+    background: #e7f7fd; 
+    color: #164f63; 
+
+}
+
+
+.menu a.active { 
+
+    background: #e7f7fd; 
+    color: #164f63; 
+    font-weight: 700; 
+
+}
+
+
+.topbar { 
+
+    background: #164f63; 
+    color: #fff; 
+    font-size: 13px; 
+
+}
+
+
+.topbar-content { 
+
+    min-height: 40px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+
+}
+
+
+.navbar { 
+
+    background: #fff; 
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08); 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; 
+
+}
+
+
+.navbar-content { 
+
+    min-height: 80px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+
+}
+
+
+.logo-area { 
+
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    color: #164f63; 
+
+}
+
+
+.logo { 
+
+    width: 55px; 
+    height: 55px; 
+    object-fit: contain; 
+
+}
+
+
+.logo-default { 
+
+    width: 55px; 
+    height: 55px; 
+    border-radius: 12px; 
+    background: #70c5e5; 
+    color: #fff; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 24px; 
+
+}
+
+
+.school-name h1 { 
+
+    font-size: 16px; 
+    line-height: 1.3; 
+
+}
+
+
+.school-name p { 
+
+    font-size: 11px; 
+    color: #777; 
+
+}
+
+
+.menu-button { 
+
+    display: none; 
+    width: 42px; 
+    height: 42px; 
+    border: none; 
+    border-radius: 8px; 
+    background: #70c5e5; 
+    color: #fff; 
+    font-size: 18px; 
+    cursor: pointer; 
+
+}
+
+
+.menu .btn-login-admin { 
+
+    background: #164f63; 
+    color: #fff; 
+    font-weight: 700; 
+    margin-left: 4px; 
+
+}
+
+
+.menu .btn-login-admin:hover { 
+
+    background: #287d9a; 
+    color: #fff; 
+
+}
+
+
+.footer { 
+
+    background: #123f4f; 
+    color: #fff; 
+    padding: 55px 0; 
+
+}
+
+
+.footer-grid { 
+
+    display: grid; 
+    grid-template-columns: 2fr 1fr 1.5fr; 
+    gap: 50px; 
+
+}
+
+
+.footer-bottom { 
+
+    background: #0d303c; 
+    color: rgba(255,255,255,0.65); 
+    text-align: center; 
+    padding: 18px; 
+    font-size: 12px; 
+
+}
+
+
+.footer h3 { 
+
+    font-size: 17px; 
+    margin-bottom: 15px; 
+
+}
+
+
+.footer ul { 
+
+    list-style: none; 
+
+}
+
+
+.footer li { 
+
+    margin-bottom: 8px; 
+
+}
+
+
+.footer p { 
+
+    color: rgba(255,255,255,0.75); 
+    font-size: 13px; 
+
+}
+
+
+.footer a { 
+
+    color: rgba(255,255,255,0.75); 
+    font-size: 13px; 
+
+}
+
+
+.footer a:hover { 
+
+    color: #ffd966; 
+
+}
+
+
+.topbar i { 
+
+    color: #ffd966; 
+    margin-right: 6px; 
+
+}
+
+
+
+@media (max-width: 950px) { 
+
+    .menu a { 
+
+        padding: 8px; 
+        font-size: 12px; 
+
+    }
+
+    .footer-grid { 
+
+        grid-template-columns: 1fr 1fr; 
+
+    }
+
+}
+
+
+
+@media (max-width: 760px) { 
+
+    .menu { 
+
+        position: absolute; 
+        top: 70px; 
+        left: 0; 
+        right: 0; 
+        display: none; 
+        flex-direction: column; 
+        align-items: stretch; 
+        background: #fff; 
+        padding: 10px; 
+        box-shadow: 0 10px 20px rgba(0,0,0,0.08); 
+
+    }
+
+    .menu a { 
+
+        display: block; 
+        padding: 12px; 
+
+    }
+
+    .menu a.active { 
+
+        background: #e7f7fd; 
+        color: #164f63; 
+        font-weight: 700; 
+
+    }
+
+    .topbar-content { 
+
+        justify-content: center; 
+        text-align: center; 
+        padding: 8px 0; 
+
+    }
+
+    .navbar-content { 
+
+        min-height: 70px; 
+
+    }
+
+    .logo { 
+
+        width: 45px; 
+        height: 45px; 
+
+    }
+
+    .logo-default { 
+
+        width: 45px; 
+        height: 45px; 
+        font-size: 20px; 
+
+    }
+
+    .school-name h1 { 
+
+        font-size: 13px; 
+
+    }
+
+    .school-name p { 
+
+        font-size: 9px; 
+
+    }
+
+    .menu-button { 
+
+        display: block; 
+
+    }
+
+    .menu .btn-login-admin { 
+
+        text-align: center; 
+        margin-left: 0; 
+        margin-top: 3px; 
+
+    }
+
+    .menu.active { 
+
+        display: flex; 
+
+    }
+
+    .footer-grid { 
+
+        grid-template-columns: 1fr; 
+        gap: 30px; 
+
+    }
+
+}
+
+
+
+@media (max-width: 450px) { 
+
+    .container { 
+
+        width: 92%; 
+
+    }
+
+    .school-name h1 { 
+
+        font-size: 12px; 
+
+    }
+
+    .school-name p { 
+
+        font-size: 8px; 
+
+    }
+
+}
+
+
+/* =========================
+   BATANG GULIR
+   Disembunyikan supaya tampilan lebih bersih,
+   tapi halaman TETAP bisa digulir seperti biasa.
+========================= */
+
+* { 
+
+    scrollbar-width: none; 
+
+    -ms-overflow-style: none; 
+} 
+
+
+*::-webkit-scrollbar { 
+
+    width: 0; 
+
+    height: 0; 
+
+    display: none; 
+} 

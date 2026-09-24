@@ -1,0 +1,645 @@
+/* ========================= 
+   SIDEBAR 
+   SAMA PERSIS DENGAN DASHBOARD 
+========================= */ 
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+/* ========================= 
+   MAIN 
+========================= */ 
+
+ 
+
+
+/* ========================= 
+   TOPBAR 
+   SAMA PERSIS DENGAN DASHBOARD 
+========================= */ 
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+/* ========================= 
+   CONTENT 
+========================= */ 
+
+ 
+
+
+.page-header { 
+    margin-bottom: 24px; 
+} 
+
+
+.back-link { 
+    display: inline-flex; 
+
+    align-items: center; 
+
+    gap: 7px; 
+
+    font-size: 13px; 
+
+    color: #6f747b; 
+
+    margin-bottom: 14px; 
+
+    transition: .2s ease; 
+} 
+
+
+.back-link:hover { 
+    color: #202124; 
+
+    transform: 
+        translateX(-2px); 
+} 
+
+
+.page-header h1 { 
+    font-size: 27px; 
+
+    margin-bottom: 7px; 
+} 
+
+
+.page-header p { 
+    font-size: 14px; 
+
+    color: #777b82; 
+
+    line-height: 1.5; 
+} 
+
+
+/* ========================= 
+   ERROR 
+========================= */ 
+
+.alert-error { 
+    background: #fff0f0; 
+
+    color: #b42323; 
+
+    border: 
+        1px solid #ffd0d0; 
+
+    border-radius: 12px; 
+
+    padding: 14px 17px; 
+
+    margin-bottom: 20px; 
+
+    display: flex; 
+
+    align-items: center; 
+
+    gap: 10px; 
+
+    font-size: 13px; 
+} 
+
+
+/* ========================= 
+   FORM CARD 
+========================= */ 
+
+.form-card { 
+    background: #ffffff; 
+
+    border: 
+        1px solid #e8eaed; 
+
+    border-radius: 18px; 
+
+    padding: 28px; 
+
+    box-shadow: 
+        0 7px 25px 
+        rgba(32,33,36,.05); 
+} 
+
+
+.form-section { 
+    margin-bottom: 28px; 
+} 
+
+
+.form-section:last-child { 
+    margin-bottom: 0; 
+} 
+
+
+.section-title { 
+    font-size: 16px; 
+
+    font-weight: bold; 
+
+    margin-bottom: 17px; 
+
+    padding-bottom: 12px; 
+
+    border-bottom: 
+        1px solid #eef0f2; 
+} 
+
+
+.form-group { 
+    margin-bottom: 20px; 
+} 
+
+
+.form-group:last-child { 
+    margin-bottom: 0; 
+} 
+
+
+.form-group label { 
+    display: block; 
+
+    font-size: 13px; 
+
+    font-weight: bold; 
+
+    margin-bottom: 8px; 
+
+    color: #35373b; 
+} 
+
+
+.required { 
+    color: #d93025; 
+} 
+
+
+.form-control { 
+    width: 100%; 
+
+    border: 
+        1px solid #dfe1e5; 
+
+    border-radius: 11px; 
+
+    padding: 12px 14px; 
+
+    font-family: inherit; 
+
+    font-size: 13px; 
+
+    outline: none; 
+
+    background: #ffffff; 
+
+    color: #202124; 
+
+    transition: .2s ease; 
+} 
+
+
+.form-control:focus { 
+    border-color: #7ccfff; 
+
+    box-shadow: 
+        0 0 0 3px 
+        rgba(124,207,255,.15); 
+} 
+
+
+textarea.form-control { 
+    min-height: 230px; 
+
+    resize: vertical; 
+
+    line-height: 1.6; 
+} 
+
+
+input[type="date"].form-control { 
+    max-width: 260px; 
+} 
+
+
+.form-help { 
+    display: block; 
+
+    margin-top: 7px; 
+
+    color: #8a8d93; 
+
+    font-size: 11px; 
+
+    line-height: 1.5; 
+} 
+
+
+/* ========================= 
+   UPLOAD 
+========================= */ 
+
+.upload-area { 
+    border: 
+        2px dashed #d9dde2; 
+
+    border-radius: 15px; 
+
+    padding: 25px; 
+
+    text-align: center; 
+
+    background: #fafbfc; 
+
+    transition: .25s ease; 
+
+    cursor: pointer; 
+} 
+
+
+.upload-area:hover { 
+    border-color: #78cfff; 
+
+    background: #f5fcff; 
+} 
+
+
+.upload-icon { 
+    width: 60px; 
+    height: 60px; 
+
+    border-radius: 17px; 
+
+    background: #e9f7ff; 
+
+    display: flex; 
+
+    align-items: center; 
+
+    justify-content: center; 
+
+    font-size: 28px; 
+
+    margin: 
+        0 auto 12px; 
+} 
+
+
+.upload-area h3 { 
+    font-size: 14px; 
+
+    margin-bottom: 5px; 
+} 
+
+
+.upload-area p { 
+    color: #85888e; 
+
+    font-size: 11px; 
+
+    line-height: 1.5; 
+
+    margin-bottom: 14px; 
+} 
+
+
+.file-input { 
+    display: none; 
+} 
+
+
+.upload-button { 
+    display: inline-flex; 
+
+    align-items: center; 
+
+    justify-content: center; 
+
+    padding: 9px 15px; 
+
+    border-radius: 9px; 
+
+    background: #202124; 
+
+    color: #ffffff; 
+
+    font-size: 12px; 
+
+    font-weight: bold; 
+} 
+
+
+.preview-wrapper { 
+    display: none; 
+
+    margin-top: 18px; 
+
+    text-align: center; 
+} 
+
+
+.preview-wrapper.show { 
+    display: block; 
+} 
+
+
+.preview-image { 
+    max-width: 100%; 
+
+    width: 300px; 
+
+    max-height: 220px; 
+
+    object-fit: cover; 
+
+    border-radius: 13px; 
+
+    border: 
+        1px solid #e4e6e8; 
+
+    box-shadow: 
+        0 5px 18px 
+        rgba(0,0,0,.08); 
+} 
+
+
+.preview-name { 
+    margin-top: 8px; 
+
+    color: #777b82; 
+
+    font-size: 11px; 
+} 
+
+
+/* ========================= 
+   INFO BOX 
+========================= */ 
+
+.info-box { 
+    background: #fff9df; 
+
+    border: 
+        1px solid #f5e5a1; 
+
+    border-radius: 13px; 
+
+    padding: 15px; 
+
+    font-size: 12px; 
+
+    line-height: 1.6; 
+
+    color: #6e5b17; 
+} 
+
+
+.info-box strong { 
+    display: block; 
+
+    margin-bottom: 5px; 
+
+    color: #5d4d10; 
+} 
+
+
+/* ========================= 
+   BUTTON 
+========================= */ 
+
+.form-actions { 
+    display: flex; 
+
+    align-items: center; 
+
+    justify-content: flex-end; 
+
+    gap: 10px; 
+
+    margin-top: 28px; 
+
+    padding-top: 22px; 
+
+    border-top: 
+        1px solid #eef0f2; 
+} 
+
+
+.btn { 
+    border: none; 
+
+    border-radius: 10px; 
+
+    padding: 12px 18px; 
+
+    font-size: 13px; 
+
+    font-weight: bold; 
+
+    cursor: pointer; 
+
+    display: inline-flex; 
+
+    align-items: center; 
+
+    justify-content: center; 
+
+    gap: 7px; 
+
+    transition: .25s ease; 
+} 
+
+
+.btn-cancel { 
+    background: #f1f3f4; 
+
+    color: #55585e; 
+} 
+
+
+.btn-cancel:hover { 
+    background: #e5e7e9; 
+} 
+
+
+.btn-save { 
+    background: 
+        linear-gradient( 
+            135deg, 
+            #ffd95a, 
+            #ffcf36 
+        ); 
+
+    color: #202124; 
+
+    box-shadow: 
+        0 7px 18px 
+        rgba(255,208,61,.25); 
+} 
+
+
+.btn-save:hover { 
+    transform: 
+        translateY(-2px); 
+
+    box-shadow: 
+        0 10px 24px 
+        rgba(255,208,61,.32); 
+} 
+
+
+/* ========================= 
+   OVERLAY 
+   SAMA DENGAN DASHBOARD 
+========================= */ 
+
+ 
+
+
+/* ========================= 
+   RESPONSIVE 
+========================= */ 
+
+ 
+
+
+@media (max-width: 760px) { 
+
+     
+
+
+     
+
+
+     
+
+
+     
+
+
+     
+
+
+     
+
+
+    .page-header h1 { 
+        font-size: 23px; 
+    } 
+
+
+    .form-card { 
+        padding: 20px 17px; 
+
+        border-radius: 15px; 
+    } 
+
+
+    input[type="date"].form-control { 
+        max-width: 100%; 
+    } 
+
+
+    .upload-area { 
+        padding: 20px 15px; 
+    } 
+
+
+    .form-actions { 
+        flex-direction: column-reverse; 
+    } 
+
+
+    .form-actions .btn { 
+        width: 100%; 
+    } 
+
+} 
+
+
+@media (max-width: 450px) { 
+
+     
+
+
+    .page-header h1 { 
+        font-size: 21px; 
+    } 
+
+
+    .form-card { 
+        padding: 17px 14px; 
+    } 
+
+}

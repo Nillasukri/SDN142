@@ -1,0 +1,797 @@
+/* =================================================
+   DASAR
+================================================= */
+
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* =================================================
+   TOPBAR
+================================================= */
+
+
+/* =================================================
+   NAVBAR
+================================================= */
+
+
+/* =================================================
+   INDIKATOR MENU AKTIF
+================================================= */
+
+
+/* =================================================
+   LOGIN ADMIN
+================================================= */
+
+
+/* =================================================
+   MENU BUTTON HP
+================================================= */
+
+
+/* =================================================
+   HERO PROFIL
+================================================= */
+
+.profile-hero {
+    min-height: 430px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: #70c5e5;
+}
+
+
+.profile-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(22, 79, 99, 0.92),
+            rgba(22, 79, 99, 0.60),
+            rgba(22, 79, 99, 0.25)
+        );
+}
+
+
+.hero-decoration {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+}
+
+
+.decoration-one {
+    width: 350px;
+    height: 350px;
+    right: -100px;
+    top: -130px;
+}
+
+
+.decoration-two {
+    width: 220px;
+    height: 220px;
+    left: -80px;
+    bottom: -100px;
+}
+
+
+.profile-hero-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    position: relative;
+    z-index: 2;
+    color: #fff;
+}
+
+
+.hero-icon {
+    width: 75px;
+    height: 75px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.16);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+
+.profile-hero h1 {
+    font-size: 48px;
+    line-height: 1.15;
+    margin-bottom: 15px;
+}
+
+
+.profile-hero p {
+    max-width: 760px;
+    font-size: 15px;
+    color: rgba(255,255,255,0.9);
+}
+
+
+/* =================================================
+   SECTION
+================================================= */
+
+section {
+    padding: 80px 0;
+}
+
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+
+.section-title span {
+    color: #70aeca;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+.section-title h2 {
+    color: #164f63;
+    font-size: 30px;
+    margin-top: 5px;
+}
+
+
+.section-title p {
+    color: #777;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+
+/* =================================================
+   IDENTITAS SEKOLAH
+================================================= */
+
+.identity-section {
+    background: #fff;
+}
+
+
+.identity-card {
+    background: #fff;
+    border: 1px solid #e8eef0;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    padding: 35px;
+
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 35px;
+    align-items: center;
+}
+
+
+.school-logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 18px;
+    background: #e7f7fd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 65px;
+    color: #70c5e5;
+    overflow: hidden;
+    margin: auto;
+}
+
+
+.school-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 10px;
+}
+
+
+.identity-content h3 {
+    color: #164f63;
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+
+.identity-address {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: #607d8b;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+
+.location-icon {
+    font-size: 18px;
+    color: #70aeca;
+    flex-shrink: 0;
+}
+
+
+.identity-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+
+.identity-item {
+    padding: 14px;
+    border-radius: 10px;
+    background: #f8fcfe;
+    border: 1px solid #e7eef1;
+}
+
+
+.identity-item span {
+    display: block;
+    color: #888;
+    font-size: 11px;
+    margin-bottom: 3px;
+}
+
+
+.identity-item strong {
+    color: #444;
+    font-size: 13px;
+}
+
+
+/* =================================================
+   KEPALA SEKOLAH
+================================================= */
+
+.principal-section {
+    background: #f8fcfe;
+}
+
+
+.principal-card {
+    background: #fff;
+    border: 1px solid #e8eef0;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    padding: 35px;
+
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+
+.principal-photo {
+    width: 280px;
+    height: 350px;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #e7f7fd;
+    color: #70c5e5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 80px;
+    margin: auto;
+}
+
+
+.principal-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.principal-label {
+    display: inline-block;
+    padding: 7px 13px;
+    border-radius: 30px;
+    background: #fff5c9;
+    color: #8a7115;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+
+.principal-content h3 {
+    color: #164f63;
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+
+.principal-content p {
+    color: #666;
+    font-size: 14px;
+    max-width: 650px;
+}
+
+
+/* =================================================
+   SEJARAH
+================================================= */
+
+.history-section {
+    background: #fff;
+}
+
+
+.content-card {
+    background: #fff;
+    border: 1px solid #e8eef0;
+    border-radius: 18px;
+    padding: 35px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+}
+
+
+.content-card p {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+
+/* =================================================
+   VISI MISI
+================================================= */
+
+.vision-mission-section {
+    background: #f8fcfe;
+}
+
+
+.vision-mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+
+.vm-card {
+    background: #fff;
+    border: 1px solid #e8eef0;
+    border-radius: 18px;
+    padding: 35px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+}
+
+
+.vm-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    background: #fff5c9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+    margin-bottom: 18px;
+}
+
+
+.mission .vm-icon {
+    background: #e7f7fd;
+}
+
+
+.vm-card h3 {
+    color: #164f63;
+    font-size: 23px;
+    margin-bottom: 12px;
+}
+
+
+.vm-card p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.85;
+}
+
+
+/* =================================================
+   MISI LIST
+================================================= */
+
+.mission-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+
+.mission-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: #666;
+    font-size: 14px;
+}
+
+
+.mission-check {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: #e7f7fd;
+    color: #164f63;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+    font-weight: 900;
+    margin-top: 2px;
+}
+
+
+/* =================================================
+   TUJUAN
+================================================= */
+
+.goals-section {
+    background: #fff;
+}
+
+
+.goals-card {
+    padding: 40px;
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff5c9,
+            #e7f7fd
+        );
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.06);
+}
+
+
+.goals-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+
+.goals-icon {
+    width: 65px;
+    height: 65px;
+    border-radius: 17px;
+    background: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 30px;
+    flex-shrink: 0;
+}
+
+
+.goals-header h2 {
+    color: #164f63;
+    font-size: 27px;
+}
+
+
+.goals-card p {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+
+/* =================================================
+   ALAMAT
+================================================= */
+
+.address-section {
+    background: #f8fcfe;
+}
+
+
+.address-card {
+    background: #fff;
+    border: 1px solid #e8eef0;
+    border-radius: 18px;
+    padding: 30px;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.05);
+}
+
+
+.address-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    background: #e7f7fd;
+    color: #70c5e5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 27px;
+    flex-shrink: 0;
+}
+
+
+.address-card h3 {
+    color: #164f63;
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+
+.address-card p {
+    color: #777;
+    font-size: 14px;
+}
+
+
+/* =================================================
+   FOOTER
+================================================= */
+
+
+/* =================================================
+   TABLET
+================================================= */
+
+@media (max-width: 950px) {
+
+    
+
+
+    .identity-card {
+        grid-template-columns: 120px 1fr;
+        padding: 28px;
+    }
+
+
+    .school-logo {
+        width: 120px;
+        height: 120px;
+        font-size: 50px;
+    }
+
+
+    .identity-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .principal-card {
+        grid-template-columns: 220px 1fr;
+        gap: 35px;
+    }
+
+
+    .principal-photo {
+        width: 220px;
+        height: 290px;
+    }
+
+
+    .profile-hero h1 {
+        font-size: 40px;
+    }
+
+
+    
+
+}
+
+
+/* =================================================
+   HP
+================================================= */
+
+@media (max-width: 760px) {
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    /* =================================================
+       INDIKATOR AKTIF DI HP
+    ================================================= */
+
+    
+
+
+    
+
+
+    .profile-hero {
+        min-height: 400px;
+    }
+
+
+    .profile-hero h1 {
+        font-size: 32px;
+    }
+
+
+    .profile-hero p {
+        font-size: 14px;
+    }
+
+
+    section {
+        padding: 60px 0;
+    }
+
+
+    .section-title h2 {
+        font-size: 25px;
+    }
+
+
+    .identity-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 25px 20px;
+    }
+
+
+    .school-logo {
+        width: 125px;
+        height: 125px;
+        margin: auto;
+    }
+
+
+    .identity-address {
+        justify-content: center;
+        text-align: left;
+    }
+
+
+    .identity-grid {
+        grid-template-columns: 1fr;
+        text-align: left;
+    }
+
+
+    .principal-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 25px 20px;
+    }
+
+
+    .principal-photo {
+        width: 230px;
+        height: 290px;
+        margin: auto;
+    }
+
+
+    .vision-mission-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .content-card {
+        padding: 25px 20px;
+    }
+
+
+    .vm-card {
+        padding: 27px 22px;
+    }
+
+
+    .goals-card {
+        padding: 28px 20px;
+    }
+
+
+    .goals-header {
+        align-items: flex-start;
+    }
+
+
+    .goals-header h2 {
+        font-size: 23px;
+    }
+
+
+    .address-card {
+        padding: 25px 20px;
+        align-items: flex-start;
+    }
+
+
+    
+
+}
+
+
+/* =================================================
+   HP KECIL
+================================================= */
+
+@media (max-width: 450px) {
+
+    
+
+
+    .profile-hero h1 {
+        font-size: 28px;
+    }
+
+
+    .hero-icon {
+        width: 65px;
+        height: 65px;
+        font-size: 32px;
+    }
+
+}

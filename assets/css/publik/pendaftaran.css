@@ -1,0 +1,544 @@
+/* =================================================
+   DASAR
+================================================= */
+
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* =================================================
+   TOPBAR
+   SAMA DENGAN INDEX.PHP
+================================================= */
+
+
+/* =================================================
+   NAVBAR
+   SAMA DENGAN INDEX.PHP
+================================================= */
+
+
+/* =================================================
+   MENU AKTIF
+================================================= */
+
+
+/* =================================================
+   TOMBOL LOGIN ADMIN
+================================================= */
+
+
+/* =================================================
+   TOMBOL MENU MOBILE
+================================================= */
+
+
+/* =================================================
+   HERO PENDAFTARAN
+================================================= */
+
+.hero-pendaftaran {
+    min-height: 330px;
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(
+            135deg,
+            #164f63,
+            #70c5e5
+        );
+    color: #fff;
+}
+
+
+.hero-pendaftaran-content {
+    padding: 70px 0;
+}
+
+
+.hero-label {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-size: 12px;
+    margin-bottom: 18px;
+}
+
+
+.hero-label i {
+    color: #ffd966;
+    margin-right: 6px;
+}
+
+
+.hero-pendaftaran h2 {
+    font-size: 42px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+
+.hero-pendaftaran p {
+    max-width: 700px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.9);
+}
+
+
+/* =================================================
+   SECTION
+================================================= */
+
+section {
+    padding: 75px 0;
+}
+
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+
+.section-title span {
+    color: #70aeca;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+.section-title h2 {
+    color: #164f63;
+    font-size: 30px;
+    margin-top: 5px;
+}
+
+
+.section-title p {
+    color: #777;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+
+/* =================================================
+   KARTU RINGKAS
+================================================= */
+
+.quick-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+
+.quick-card {
+    background: #fff;
+    border: 1px solid #e7eef1;
+    border-radius: 15px;
+    padding: 30px 25px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    transition: 0.3s;
+}
+
+
+.quick-card:hover {
+    transform: translateY(-5px);
+}
+
+
+.quick-icon {
+    width: 65px;
+    height: 65px;
+    border-radius: 15px;
+    background: #e7f7fd;
+    color: #70c5e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    font-size: 27px;
+}
+
+
+.quick-card h3 {
+    color: #164f63;
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+
+.quick-card p {
+    color: #777;
+    font-size: 13px;
+}
+
+
+/* =================================================
+   AREA INFORMASI
+================================================= */
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 35px;
+    align-items: start;
+}
+
+
+.content-box {
+    background: #fff;
+    border: 1px solid #e7eef1;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+}
+
+
+.content-box h3 {
+    color: #164f63;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+
+.content-box p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+
+/* =================================================
+   PERSYARATAN
+================================================= */
+
+.requirements {
+    list-style: none;
+}
+
+
+.requirements li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #eef2f3;
+    color: #555;
+    font-size: 14px;
+}
+
+
+.requirements li:last-child {
+    border-bottom: none;
+}
+
+
+.requirements i {
+    color: #70c5e5;
+    margin-top: 4px;
+}
+
+
+/* =================================================
+   LANGKAH PENDAFTARAN
+================================================= */
+
+.steps {
+    display: grid;
+    gap: 15px;
+}
+
+
+.step {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+
+.step-number {
+    flex: 0 0 38px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #ffd966;
+    color: #164f63;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+
+.step-content h4 {
+    color: #164f63;
+    font-size: 15px;
+    margin-bottom: 3px;
+}
+
+
+.step-content p {
+    margin: 0;
+    font-size: 13px;
+}
+
+
+/* =================================================
+   DOWNLOAD FORM
+================================================= */
+
+.download-box {
+    margin-top: 35px;
+    padding: 30px;
+    border-radius: 18px;
+    background: #fff5c9;
+    border-left: 5px solid #ffd966;
+}
+
+
+.download-box h3 {
+    color: #164f63;
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+
+.download-box p {
+    color: #666;
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 12px 20px;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-right: 7px;
+    margin-bottom: 7px;
+    transition: 0.3s;
+}
+
+
+.button-yellow {
+    background: #ffd966;
+    color: #164f63;
+}
+
+
+.button-yellow:hover {
+    background: #f2c83c;
+    transform: translateY(-2px);
+}
+
+
+.button-blue {
+    background: #164f63;
+    color: #fff;
+}
+
+
+.button-blue:hover {
+    background: #287d9a;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+
+/* =================================================
+   KONTAK
+================================================= */
+
+.contact-box {
+    margin-top: 35px;
+    background: #f8fcfe;
+    border-radius: 18px;
+    padding: 30px;
+}
+
+
+.contact-box h3 {
+    color: #164f63;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+
+.contact-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    color: #666;
+    font-size: 13px;
+}
+
+
+.contact-item i {
+    color: #70c5e5;
+    width: 18px;
+    margin-top: 4px;
+}
+
+
+/* =================================================
+   FOOTER
+   SAMA DENGAN INDEX.PHP
+================================================= */
+
+
+/* =================================================
+   TABLET
+   SAMA DENGAN INDEX.PHP
+================================================= */
+
+@media (max-width: 950px) {
+
+    
+
+
+    .quick-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    
+
+}
+
+
+/* =================================================
+   HP
+   SAMA DENGAN INDEX.PHP
+================================================= */
+
+@media (max-width: 760px) {
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    .hero-pendaftaran {
+        min-height: 360px;
+    }
+
+
+    .hero-pendaftaran-content {
+        padding: 55px 0;
+    }
+
+
+    .hero-pendaftaran h2 {
+        font-size: 32px;
+    }
+
+
+    .hero-pendaftaran p {
+        font-size: 14px;
+    }
+
+
+    section {
+        padding: 60px 0;
+    }
+
+
+    .section-title h2 {
+        font-size: 25px;
+    }
+
+
+    .quick-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .content-box {
+        padding: 25px;
+    }
+
+
+    .download-box {
+        padding: 25px;
+    }
+
+
+    .contact-box {
+        padding: 25px;
+    }
+
+
+    
+
+}
+
+
+/* =================================================
+   HP KECIL
+   SAMA DENGAN INDEX.PHP
+================================================= */
+
+@media (max-width: 450px) {
+
+    
+
+
+    .hero-pendaftaran h2 {
+        font-size: 28px;
+    }
+
+
+    .button {
+        width: 100%;
+        margin-right: 0;
+    }
+
+}

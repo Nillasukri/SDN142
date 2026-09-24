@@ -1,0 +1,693 @@
+/* =====================================================
+   ROOT
+===================================================== */
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+
+button,
+input,
+textarea {
+
+    font-family:
+        inherit;
+}
+
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+
+/* =====================================================
+   SIDEBAR BOTTOM
+===================================================== */
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+
+/* =====================================================
+   TOPBAR
+===================================================== */
+
+
+/* =====================================================
+   OVERLAY
+===================================================== */
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+
+/* =====================================================
+   BREADCRUMB
+===================================================== */
+
+.breadcrumb {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        4px;
+
+    margin-bottom:
+        20px;
+
+    font-size:
+        12px;
+
+    color:
+        #858990;
+}
+
+
+.breadcrumb a {
+
+    color:
+        #5d7fa1;
+
+    transition:
+        0.2s ease;
+}
+
+
+.breadcrumb a:hover {
+
+    color:
+        #2d6f9f;
+}
+
+
+/* =====================================================
+   FORM CARD
+===================================================== */
+
+.form-card {
+
+    max-width:
+        850px;
+
+    background:
+        #ffffff;
+
+    border:
+        1px solid #e7e9ed;
+
+    border-radius:
+        16px;
+
+    padding:
+        28px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(
+            30,
+            34,
+            40,
+            0.05
+        );
+}
+
+
+.form-card h2 {
+
+    font-size:
+        21px;
+
+    color:
+        #25262a;
+}
+
+
+.subtitle {
+
+    margin-top:
+        6px;
+
+    margin-bottom:
+        25px;
+
+    color:
+        #858990;
+
+    font-size:
+        12px;
+}
+
+
+/* =====================================================
+   ALERT
+===================================================== */
+
+.alert {
+
+    padding:
+        14px 16px;
+
+    border-radius:
+        12px;
+
+    margin-bottom:
+        22px;
+
+    font-size:
+        13px;
+
+    line-height:
+        1.5;
+}
+
+
+.alert-error {
+
+    background:
+        #fff0f0;
+
+    border:
+        1px solid #f1c5c5;
+
+    color:
+        #a33d3d;
+}
+
+
+/* =====================================================
+   FORM GROUP
+===================================================== */
+
+.form-group {
+
+    margin-bottom:
+        20px;
+}
+
+
+.form-group label {
+
+    display:
+        block;
+
+    color:
+        #36383d;
+
+    font-size:
+        13px;
+
+    font-weight:
+        600;
+
+    margin-bottom:
+        7px;
+}
+
+
+.required {
+
+    color:
+        #d9534f;
+}
+
+
+.form-control {
+
+    width:
+        100%;
+
+    border:
+        1px solid #dfe3e8;
+
+    border-radius:
+        11px;
+
+    padding:
+        11px 13px;
+
+    font-size:
+        13px;
+
+    color:
+        #25262a;
+
+    background:
+        #ffffff;
+
+    outline:
+        none;
+
+    transition:
+        0.25s ease;
+}
+
+
+.form-control:focus {
+
+    border-color:
+        #9aa0a8;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(
+            154,
+            160,
+            168,
+            0.12
+        );
+}
+
+
+textarea.form-control {
+
+    min-height:
+        200px;
+
+    resize:
+        vertical;
+}
+
+
+.form-help {
+
+    margin-top:
+        6px;
+
+    color:
+        #92969d;
+
+    font-size:
+        11px;
+
+    line-height:
+        1.5;
+}
+
+
+/* =====================================================
+   FOTO SAAT INI
+===================================================== */
+
+.current-photo {
+
+    margin-top:
+        8px;
+}
+
+
+.photo-preview {
+
+    width:
+        280px;
+
+    height:
+        190px;
+
+    object-fit:
+        cover;
+
+    border-radius:
+        12px;
+
+    border:
+        1px solid #e0e3e7;
+
+    background:
+        #eef0f3;
+
+    display:
+        block;
+}
+
+
+.no-photo {
+
+    width:
+        280px;
+
+    height:
+        190px;
+
+    border-radius:
+        12px;
+
+    border:
+        1px dashed #cfd3d8;
+
+    background:
+        #f5f6f8;
+
+    color:
+        #858990;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    flex-direction:
+        column;
+
+    gap:
+        8px;
+
+    font-size:
+        12px;
+}
+
+
+.no-photo-icon {
+
+    font-size:
+        34px;
+}
+
+
+/* =====================================================
+   PREVIEW FOTO BARU
+===================================================== */
+
+.new-preview {
+
+    display:
+        none;
+
+    margin-top:
+        15px;
+}
+
+
+.new-preview-title {
+
+    color:
+        #666b72;
+
+    font-size:
+        12px;
+
+    margin-bottom:
+        8px;
+}
+
+
+.new-preview img {
+
+    width:
+        280px;
+
+    height:
+        190px;
+
+    object-fit:
+        cover;
+
+    border-radius:
+        12px;
+
+    border:
+        1px solid #e0e3e7;
+
+    display:
+        block;
+}
+
+
+/* =====================================================
+   FORM ACTION
+===================================================== */
+
+.form-actions {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+    flex-wrap:
+        wrap;
+
+    margin-top:
+        25px;
+
+    padding-top:
+        22px;
+
+    border-top:
+        1px solid #edf0f3;
+}
+
+
+/* =====================================================
+   BUTTON DASAR
+===================================================== */
+
+.button {
+
+    min-height:
+        43px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        8px;
+
+    padding:
+        0 18px;
+
+    border-radius:
+        11px;
+
+    border:
+        none;
+
+    font-size:
+        13px;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    transition:
+        0.25s ease;
+}
+
+
+/* =====================================================
+   SIMPAN PERUBAHAN
+===================================================== */
+
+.button-primary {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffd95a,
+            #f4c84e
+        );
+
+    color:
+        #252525;
+
+    box-shadow:
+        0 7px 17px
+        rgba(
+            244,
+            200,
+            78,
+            0.23
+        );
+}
+
+
+.button-primary:hover {
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 10px 22px
+        rgba(
+            244,
+            200,
+            78,
+            0.30
+        );
+}
+
+
+/* =====================================================
+   KEMBALI
+===================================================== */
+
+.button-secondary {
+
+    background:
+        #f0f1f3;
+
+    color:
+        #555960;
+}
+
+
+.button-secondary:hover {
+
+    background:
+        #e5e7e9;
+
+    color:
+        #303236;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 750px) {
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    .form-card {
+
+        padding:
+            22px 18px;
+
+        border-radius:
+            15px;
+    }
+
+
+    .form-card h2 {
+
+        font-size:
+            19px;
+    }
+
+
+    .breadcrumb {
+
+        margin-bottom:
+            16px;
+    }
+
+
+    .photo-preview,
+    .new-preview img,
+    .no-photo {
+
+        width:
+            100%;
+
+        max-width:
+            350px;
+
+        height:
+            220px;
+    }
+
+
+    .form-actions {
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+    }
+
+
+    .form-actions .button {
+
+        width:
+            100%;
+    }
+
+
+    
+
+}
+
+
+/* =====================================================
+   HP KECIL
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .form-card {
+
+        padding:
+            18px 15px;
+    }
+
+
+    .form-card h2 {
+
+        font-size:
+            18px;
+    }
+
+
+    .form-help {
+
+        font-size:
+            10px;
+    }
+
+}

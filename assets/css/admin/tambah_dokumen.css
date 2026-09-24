@@ -1,0 +1,908 @@
+/* ===================================================== 
+   ROOT 
+====================================================== */ 
+
+ 
+
+
+/* ===================================================== 
+   RESET 
+====================================================== */ 
+
+ 
+
+
+ 
+
+
+ 
+
+
+/* ===================================================== 
+   SIDEBAR 
+   SAMA DENGAN DASHBOARD 
+====================================================== */ 
+
+ 
+
+
+/* ===================================================== 
+   SIDEBAR HEADER 
+====================================================== */ 
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+/* ===================================================== 
+   MENU TITLE 
+====================================================== */ 
+
+ 
+
+
+/* ===================================================== 
+   MENU 
+====================================================== */ 
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+/* ===================================================== 
+   TOMBOL KELUAR 
+   SAMA DENGAN DASHBOARD 
+====================================================== */ 
+
+ 
+
+
+ 
+
+
+ 
+
+
+/* ===================================================== 
+   MAIN 
+====================================================== */ 
+
+ 
+
+
+/* ===================================================== 
+   TOPBAR 
+====================================================== */ 
+
+ 
+
+
+ 
+
+
+/* ===================================================== 
+   MOBILE MENU 
+====================================================== */ 
+
+ 
+
+
+/* ===================================================== 
+   TOPBAR TITLE 
+====================================================== */ 
+
+ 
+
+
+ 
+
+
+/* ===================================================== 
+   ADMIN PROFILE 
+====================================================== */ 
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+/* ===================================================== 
+   OVERLAY 
+====================================================== */ 
+
+ 
+
+
+ 
+
+
+/* ===================================================== 
+   CONTENT 
+====================================================== */ 
+
+ 
+
+
+/* ===================================================== 
+   PAGE HEADER 
+====================================================== */ 
+
+.page-header { 
+
+    display: flex; 
+
+    align-items: flex-start; 
+
+    justify-content: space-between; 
+
+    gap: 20px; 
+
+    margin-bottom: 25px; 
+
+} 
+
+
+.page-header-left h2 { 
+
+    font-size: 24px; 
+
+    color: 
+        var(--gelap); 
+
+} 
+
+
+.page-header-left p { 
+
+    margin-top: 7px; 
+
+    font-size: 13px; 
+
+    line-height: 1.6; 
+
+    color: 
+        var(--abu-text); 
+
+} 
+
+
+/* ===================================================== 
+   BUTTON KEMBALI 
+====================================================== */ 
+
+.back-button { 
+
+    display: inline-flex; 
+
+    align-items: center; 
+
+    gap: 8px; 
+
+    padding: 
+        11px 17px; 
+
+    background: 
+        #ffffff; 
+
+    color: 
+        #4d5158; 
+
+    border: 
+        1px solid #dfe2e7; 
+
+    border-radius: 11px; 
+
+    text-decoration: none; 
+
+    font-size: 13px; 
+
+    font-weight: 600; 
+
+    transition: 
+        0.25s ease; 
+
+    white-space: nowrap; 
+
+} 
+
+
+.back-button:hover { 
+
+    background: 
+        #f1f2f4; 
+
+    transform: 
+        translateY(-1px); 
+
+} 
+
+
+/* ===================================================== 
+   ALERT 
+====================================================== */ 
+
+.alert { 
+
+    padding: 
+        14px 16px; 
+
+    border-radius: 12px; 
+
+    margin-bottom: 22px; 
+
+    font-size: 13px; 
+
+    line-height: 1.5; 
+
+} 
+
+
+.alert-error { 
+
+    background: 
+        #fff0f0; 
+
+    border: 
+        1px solid #ffd0d0; 
+
+    color: 
+        #b52c2c; 
+
+} 
+
+
+/* ===================================================== 
+   FORM CARD 
+====================================================== */ 
+
+.form-card { 
+
+    max-width: 920px; 
+
+    background: 
+        #ffffff; 
+
+    border: 
+        1px solid #e7e9ed; 
+
+    border-radius: 
+        18px; 
+
+    padding: 
+        30px; 
+
+    box-shadow: 
+        0 8px 25px 
+        rgba(30, 34, 40, 0.05); 
+
+} 
+
+
+/* ===================================================== 
+   FORM TITLE 
+====================================================== */ 
+
+.form-title { 
+
+    display: flex; 
+
+    align-items: center; 
+
+    gap: 12px; 
+
+    margin-bottom: 25px; 
+
+    padding-bottom: 20px; 
+
+    border-bottom: 
+        1px solid #edf0f3; 
+
+} 
+
+
+.form-title-icon { 
+
+    width: 46px; 
+    height: 46px; 
+
+    border-radius: 13px; 
+
+    background: 
+        var(--kuning-muda); 
+
+    display: flex; 
+
+    align-items: center; 
+
+    justify-content: center; 
+
+    font-size: 21px; 
+
+} 
+
+
+.form-title h3 { 
+
+    font-size: 17px; 
+
+    color: 
+        #25262a; 
+
+} 
+
+
+.form-title p { 
+
+    margin-top: 3px; 
+
+    color: 
+        #858990; 
+
+    font-size: 12px; 
+
+} 
+
+
+/* ===================================================== 
+   FORM GROUP 
+====================================================== */ 
+
+.form-group { 
+
+    margin-bottom: 21px; 
+
+} 
+
+
+.form-row { 
+
+    display: grid; 
+
+    grid-template-columns: 
+        1fr 1fr; 
+
+    gap: 18px; 
+
+} 
+
+
+.form-label { 
+
+    display: block; 
+
+    margin-bottom: 8px; 
+
+    font-size: 13px; 
+
+    font-weight: 700; 
+
+    color: 
+        #34373d; 
+
+} 
+
+
+.required { 
+
+    color: 
+        #d94b4b; 
+
+} 
+
+
+.form-control { 
+
+    width: 100%; 
+
+    padding: 
+        13px 14px; 
+
+    border: 
+        1px solid #dfe3e8; 
+
+    border-radius: 11px; 
+
+    background: 
+        #ffffff; 
+
+    color: 
+        #25262a; 
+
+    font-family: 
+        inherit; 
+
+    font-size: 13px; 
+
+    outline: none; 
+
+    transition: 
+        0.25s ease; 
+
+} 
+
+
+.form-control:focus { 
+
+    border-color: 
+        #9aa0a8; 
+
+    box-shadow: 
+        0 0 0 3px 
+        rgba( 
+            154, 
+            160, 
+            168, 
+            0.12 
+        ); 
+
+} 
+
+
+textarea.form-control { 
+
+    min-height: 125px; 
+
+    resize: vertical; 
+
+    line-height: 1.6; 
+
+} 
+
+
+select.form-control { 
+
+    cursor: pointer; 
+
+} 
+
+
+/* ===================================================== 
+   FILE UPLOAD 
+====================================================== */ 
+
+.file-upload { 
+
+    position: relative; 
+
+    border: 
+        2px dashed #d9dde3; 
+
+    border-radius: 15px; 
+
+    background: 
+        #fafbfc; 
+
+    padding: 
+        27px 20px; 
+
+    text-align: center; 
+
+    transition: 
+        0.25s ease; 
+
+    cursor: pointer; 
+
+} 
+
+
+.file-upload:hover { 
+
+    border-color: 
+        #aeb3bb; 
+
+    background: 
+        #f6f7f9; 
+
+} 
+
+
+.file-upload input { 
+
+    position: absolute; 
+
+    inset: 0; 
+
+    width: 100%; 
+    height: 100%; 
+
+    opacity: 0; 
+
+    cursor: pointer; 
+
+} 
+
+
+.upload-icon { 
+
+    width: 54px; 
+    height: 54px; 
+
+    margin: 
+        0 auto 12px; 
+
+    border-radius: 15px; 
+
+    background: 
+        #eef0f3; 
+
+    display: flex; 
+
+    align-items: center; 
+
+    justify-content: center; 
+
+    font-size: 25px; 
+
+} 
+
+
+.file-upload strong { 
+
+    display: block; 
+
+    color: 
+        #36393f; 
+
+    font-size: 14px; 
+
+} 
+
+
+.file-upload > span { 
+
+    display: block; 
+
+    margin-top: 6px; 
+
+    color: 
+        #858990; 
+
+    font-size: 12px; 
+
+    line-height: 1.5; 
+
+} 
+
+
+.file-name { 
+
+    margin-top: 12px; 
+
+    font-size: 12px; 
+
+    font-weight: 600; 
+
+    color: 
+        #555960; 
+
+    word-break: break-word; 
+
+} 
+
+
+.file-info { 
+
+    margin-top: 9px; 
+
+    font-size: 11px; 
+
+    line-height: 1.5; 
+
+    color: 
+        #858990; 
+
+} 
+
+
+/* ===================================================== 
+   FORM ACTION 
+====================================================== */ 
+
+.form-actions { 
+
+    display: flex; 
+
+    align-items: center; 
+
+    justify-content: flex-end; 
+
+    gap: 10px; 
+
+    margin-top: 28px; 
+
+    padding-top: 22px; 
+
+    border-top: 
+        1px solid #edf0f3; 
+
+} 
+
+
+.btn { 
+
+    display: inline-flex; 
+
+    align-items: center; 
+
+    justify-content: center; 
+
+    gap: 8px; 
+
+    min-height: 43px; 
+
+    padding: 
+        0 18px; 
+
+    border-radius: 11px; 
+
+    border: 0; 
+
+    font-family: 
+        inherit; 
+
+    font-size: 13px; 
+
+    font-weight: 700; 
+
+    text-decoration: none; 
+
+    cursor: pointer; 
+
+    transition: 
+        0.25s ease; 
+
+} 
+
+
+.btn-secondary { 
+
+    background: 
+        #f0f1f3; 
+
+    color: 
+        #555960; 
+
+} 
+
+
+.btn-secondary:hover { 
+
+    background: 
+        #e4e6e9; 
+
+} 
+
+
+.btn-primary { 
+
+    background: 
+        linear-gradient( 
+            135deg, 
+            #ffd95a, 
+            #f4c84e 
+        ); 
+
+    color: 
+        #202124; 
+
+    box-shadow: 
+        0 7px 17px 
+        rgba( 
+            244, 
+            200, 
+            78, 
+            0.23 
+        ); 
+
+} 
+
+
+.btn-primary:hover { 
+
+    background: 
+        linear-gradient( 
+            135deg, 
+            #f5c940, 
+            #eab83a 
+        ); 
+
+    transform: 
+        translateY(-1px); 
+
+    box-shadow: 
+        0 10px 22px 
+        rgba( 
+            244, 
+            200, 
+            78, 
+            0.30 
+        ); 
+
+} 
+
+
+/* ===================================================== 
+   FOOTER 
+====================================================== */ 
+
+ 
+
+
+/* ===================================================== 
+   RESPONSIVE 1000px 
+====================================================== */ 
+
+@media (max-width: 1000px) { 
+
+     
+
+
+     
+
+
+     
+
+
+     
+
+
+     
+
+
+    .form-row { 
+
+        grid-template-columns: 
+            1fr; 
+
+    } 
+
+} 
+
+
+/* ===================================================== 
+   RESPONSIVE 750px 
+====================================================== */ 
+
+@media (max-width: 750px) { 
+
+     
+
+
+     
+
+
+     
+
+
+     
+
+
+     
+
+
+     
+
+
+     
+
+
+    .page-header { 
+
+        flex-direction: 
+            column; 
+
+        margin-bottom: 
+            20px; 
+
+    } 
+
+
+    .page-header-left h2 { 
+
+        font-size: 22px; 
+
+    } 
+
+
+    .page-header-left p { 
+
+        font-size: 13px; 
+
+    } 
+
+
+    .back-button { 
+
+        width: 100%; 
+
+        justify-content: 
+            center; 
+
+    } 
+
+
+    .form-card { 
+
+        padding: 
+            21px; 
+
+        border-radius: 
+            15px; 
+
+    } 
+
+
+    .form-actions { 
+
+        flex-direction: 
+            column-reverse; 
+
+        align-items: 
+            stretch; 
+
+    } 
+
+
+    .btn { 
+
+        width: 100%; 
+
+    } 
+
+} 
+
+
+/* ===================================================== 
+   RESPONSIVE 420px 
+====================================================== */ 
+
+@media (max-width: 420px) { 
+
+     
+
+
+    .form-card { 
+
+        padding: 
+            17px; 
+
+    } 
+
+
+    .form-title { 
+
+        align-items: 
+            flex-start; 
+
+    } 
+
+}

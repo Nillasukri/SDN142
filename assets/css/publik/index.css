@@ -1,0 +1,826 @@
+/* =================================================
+   DASAR
+================================================= */
+
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* =================================================
+   TOPBAR
+================================================= */
+
+
+/* =================================================
+   NAVBAR
+================================================= */
+
+
+.menu .btn-daftar {
+    background: #ffd966;
+    color: #164f63;
+    font-weight: 700;
+}
+
+
+/* =================================================
+   TOMBOL LOGIN ADMIN
+================================================= */
+
+
+/* =================================================
+   HERO
+================================================= */
+
+.hero {
+    min-height: 560px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: #70c5e5;
+}
+
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.25;
+}
+
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(22, 79, 99, 0.90),
+        rgba(22, 79, 99, 0.50),
+        rgba(22, 79, 99, 0.10)
+    );
+}
+
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+
+.hero-content {
+    max-width: 750px;
+    color: #fff;
+    padding: 70px 0;
+}
+
+
+.label {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+
+.label i {
+    margin-right: 6px;
+    color: #ffd966;
+}
+
+
+.hero h2 {
+    font-size: 52px;
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+
+.hero p {
+    font-size: 15px;
+    margin-bottom: 25px;
+    max-width: 650px;
+}
+
+
+/* =================================================
+   BUTTON
+================================================= */
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 12px 20px;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-right: 7px;
+    margin-bottom: 7px;
+    transition: 0.3s;
+}
+
+
+.button-yellow {
+    background: #ffd966;
+    color: #164f63;
+}
+
+
+.button-yellow:hover {
+    background: #f2c83c;
+    transform: translateY(-2px);
+}
+
+
+.button-white {
+    background: #fff;
+    color: #164f63;
+}
+
+
+.button-white:hover {
+    background: #eee;
+    transform: translateY(-2px);
+}
+
+
+/* =================================================
+   SECTION
+================================================= */
+
+section {
+    padding: 80px 0;
+}
+
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+
+.section-title span {
+    color: #70aeca;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+.section-title h2 {
+    color: #164f63;
+    font-size: 30px;
+    margin-top: 5px;
+}
+
+
+.section-title p {
+    color: #777;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+
+/* =================================================
+   SAMBUTAN
+================================================= */
+
+.sambutan {
+    background: #f8fcfe;
+}
+
+
+.sambutan-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+
+.kepala-foto {
+    text-align: center;
+}
+
+
+.kepala-foto img {
+    width: 280px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 18px;
+    margin: auto;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+
+.kepala-placeholder {
+    width: 280px;
+    height: 350px;
+    border-radius: 18px;
+    margin: auto;
+    background: #e7f7fd;
+    color: #70c5e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+}
+
+
+.kepala-nama {
+    margin-top: 15px;
+}
+
+
+.kepala-nama h3 {
+    color: #164f63;
+    font-size: 18px;
+}
+
+
+.kepala-nama p {
+    color: #888;
+    font-size: 13px;
+}
+
+
+.sambutan-text h2 {
+    color: #164f63;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+
+.sambutan-text p {
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+
+.quote {
+    margin-top: 25px;
+    padding: 18px 20px;
+    background: #fff5c9;
+    border-left: 5px solid #ffd966;
+    border-radius: 8px;
+    color: #555;
+}
+
+
+.quote i {
+    color: #c9a51c;
+    margin-right: 8px;
+}
+
+
+/* =================================================
+   INFORMASI
+================================================= */
+
+.informasi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+
+.informasi-card {
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #e8eef0;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    transition: 0.3s;
+}
+
+
+.informasi-card:hover {
+    transform: translateY(-5px);
+}
+
+
+.informasi-foto {
+    height: 210px;
+    background: #e7f7fd;
+}
+
+
+.informasi-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.no-foto {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #70c5e5;
+    font-size: 55px;
+}
+
+
+.informasi-isi {
+    padding: 20px;
+}
+
+
+.tanggal {
+    color: #70aeca;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+
+.informasi-isi h3 {
+    color: #164f63;
+    font-size: 17px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+
+.informasi-isi p {
+    color: #777;
+    font-size: 13px;
+}
+
+
+/* =================================================
+   GURU
+================================================= */
+
+.guru {
+    background: #f8fcfe;
+}
+
+
+.guru-slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 10px 5px 20px;
+    scroll-behavior: smooth;
+
+    /* Bagian ini SENGAJA dikecualikan dari aturan
+       "sembunyikan batang gulir" di layout.css,
+       karena kartu guru memang perlu digeser ke samping. */
+
+    scrollbar-width: thin;
+    scrollbar-color: #9fd3e3 #eef7fa;
+}
+
+
+.guru-slider::-webkit-scrollbar {
+    display: block;
+    width: 7px;
+    height: 8px;
+}
+
+
+.guru-slider::-webkit-scrollbar-track {
+    background: #eef7fa;
+    border-radius: 20px;
+}
+
+
+.guru-slider::-webkit-scrollbar-thumb {
+    background: #9fd3e3;
+    border-radius: 20px;
+}
+
+
+.guru-slider::-webkit-scrollbar-thumb:hover {
+    background: #6fbfd6;
+}
+
+
+.guru-card {
+    flex: 0 0 230px;
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #e7eef1;
+    box-shadow: 0 7px 22px rgba(0,0,0,0.06);
+}
+
+
+.guru-foto {
+    height: 250px;
+    background: #e7f7fd;
+}
+
+
+.guru-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.guru-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #70c5e5;
+    font-size: 70px;
+}
+
+
+.guru-info {
+    padding: 17px;
+    text-align: center;
+}
+
+
+.guru-info h3 {
+    color: #164f63;
+    font-size: 15px;
+}
+
+
+.guru-info p {
+    color: #888;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+
+.swipe-info {
+    text-align: center;
+    color: #999;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+
+/* =================================================
+   PENDAFTARAN
+================================================= */
+
+.pendaftaran {
+    padding: 50px 0;
+}
+
+
+.pendaftaran-box {
+    padding: 40px;
+    border-radius: 20px;
+    background: linear-gradient(
+        135deg,
+        #164f63,
+        #287d9a
+    );
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+
+.pendaftaran-box h2 {
+    font-size: 28px;
+    margin-bottom: 7px;
+}
+
+
+.pendaftaran-box p {
+    color: rgba(255,255,255,0.85);
+    font-size: 14px;
+}
+
+
+/* =================================================
+   FOOTER
+================================================= */
+
+
+/* =================================================
+   TABLET
+================================================= */
+
+@media (max-width: 950px) {
+
+    
+
+
+    .sambutan-grid {
+        grid-template-columns: 280px 1fr;
+        gap: 35px;
+    }
+
+
+    .informasi-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    
+
+}
+
+
+/* =================================================
+   HP
+================================================= */
+
+@media (max-width: 760px) {
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    .menu .btn-daftar,
+    .menu .btn-login-admin {
+        text-align: center;
+        margin-left: 0;
+        margin-top: 3px;
+    }
+
+
+    .hero {
+        min-height: 500px;
+    }
+
+
+    .hero h2 {
+        font-size: 32px;
+    }
+
+
+    .hero p {
+        font-size: 14px;
+    }
+
+
+    section {
+        padding: 60px 0;
+    }
+
+
+    .section-title h2 {
+        font-size: 25px;
+    }
+
+
+    .sambutan-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+
+    .kepala-foto img,
+    .kepala-placeholder {
+        width: 230px;
+        height: 290px;
+    }
+
+
+    .informasi-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .guru-card {
+        flex-basis: 210px;
+    }
+
+
+    .guru-foto {
+        height: 230px;
+    }
+
+
+    .pendaftaran-box {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px;
+    }
+
+
+    
+
+}
+
+
+/* =================================================
+   HP KECIL
+================================================= */
+
+@media (max-width: 450px) {
+
+    
+
+
+    .hero h2 {
+        font-size: 28px;
+    }
+
+
+    .hero .button {
+        width: 100%;
+        margin-right: 0;
+    }
+
+
+    .guru-card {
+        flex-basis: 190px;
+    }
+
+
+    .guru-foto {
+        height: 210px;
+    }
+
+}
+
+
+/* =================================================
+   TOMBOL & SWIPE GESER GURU
+   (bagian "Guru & Tenaga Kependidikan")
+
+   Cara menggeser kartu guru:
+   1. tombol panah di sisi kiri / kanan
+   2. di-swipe / diseret langsung (mouse atau jari)
+================================================= */
+
+.geser-wrap {
+
+    position: relative;
+
+    /* ruang di kiri & kanan supaya tombol tidak menutupi kartu */
+
+    padding: 0 56px;
+
+}
+
+
+/* Kartu bisa diseret: gulir tegak halaman tetap jalan,
+   yang ditangani JavaScript hanya seretan mendatar. */
+
+.guru-slider {
+
+    touch-action: pan-y;
+
+    cursor: grab;
+
+}
+
+
+.guru-slider.seret-aktif {
+
+    cursor: grabbing;
+
+    user-select: none;
+
+}
+
+
+.guru-slider img {
+
+    -webkit-user-drag: none;
+
+    user-select: none;
+
+}
+
+
+.geser-btn {
+
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: 5;
+
+    width: 44px;
+
+    height: 44px;
+
+    border: 1px solid #cfe7f0;
+
+    border-radius: 50%;
+
+    background: #fff;
+
+    color: #3f96b8;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    box-shadow: 0 6px 18px rgba(22, 79, 99, 0.16);
+
+    transition: 0.25s;
+
+}
+
+
+.geser-kiri {
+
+    left: 0;
+
+}
+
+
+.geser-kanan {
+
+    right: 0;
+
+}
+
+
+.geser-btn:hover {
+
+    background: #3f96b8;
+
+    border-color: #3f96b8;
+
+    color: #fff;
+
+}
+
+
+/* Tombol menghilang kalau kartu sudah mentok ke ujung / tidak perlu digeser */
+
+.geser-btn.mentok {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+}
+
+
+/* Di layar HP: tombol lebih kecil, ruang tepi lebih sempit */
+
+@media (max-width: 600px) {
+
+    .geser-wrap {
+
+        padding: 0 40px;
+    }
+
+
+    .geser-btn {
+
+        width: 34px;
+
+        height: 34px;
+
+        font-size: 12px;
+    }
+
+}
