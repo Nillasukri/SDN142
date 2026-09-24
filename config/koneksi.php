@@ -56,14 +56,82 @@ if (db_lapisan() === 'supabase') {
     /* Uji cepat: pastikan Supabase menjawab dan fungsi app_query ada.
        Kalau gagal, pesannya dibuat jelas supaya mudah diperbaiki. */
     if (db_query($koneksi, "select 1 as uji") === false) {
+
+        /* -------------------------------------------------------------
+           DIAGNOSA CEPAT — supaya penyebabnya langsung kelihatan
+           tanpa harus menebak-nebak. Kunci hanya ditampilkan sepotong
+           (disamarkan), jadi rahasianya tetap aman.
+        ------------------------------------------------------------- */
+        $url_kini   = db_ambil_setelan('SUPABASE_URL');
+        $kunci_kini = db_ambil_setelan('SUPABASE_SERVICE_KEY');
+
+        if ($kunci_kini === '') {
+            $kunci_kini = db_ambil_setelan('SUPABASE_ANON_KEY');
+        }
+
+        /* Nama variabel yang benar-benar menyediakan kunci */
+        $sumber_kunci = '(tidak ada)';
+
+        foreach (['SUPABASE_SERVICE_KEY', 'SUPABASE_SECRET_KEY',
+                  'SUPABASE_ANON_KEY', 'SUPABASE_PUBLISHABLE_KEY'] as $nama_var) {
+            if (db_baca_setelan($nama_var) !== '') {
+                $sumber_kunci = $nama_var;
+                break;
+            }
+        }
+
+        /* Kunci disamarkan: cukup awalan + panjangnya */
+        $kunci_tampil = ($kunci_kini === '')
+            ? '(kosong)'
+            : substr($kunci_kini, 0, 6) . '… (' . strlen($kunci_kini) . ' huruf)';
+
+        /* Petunjuk berdasarkan bentuk isinya */
+        $petunjuk = '';
+
+        if ($kunci_kini === '') {
+            $petunjuk = 'Kuncinya kosong — Environment Variables belum terisi.';
+        } elseif (strpos($kunci_kini, 'http') === 0) {
+            $petunjuk = 'Isi kuncinya kelihatannya ALAMAT WEB — kemungkinan kolom URL dan kunci tertukar tempat.';
+        } elseif (strpos($kunci_kini, 'sb_publishable') === 0) {
+            $petunjuk = 'Itu kunci PUBLIK (publishable) — yang dibutuhkan kunci RAHASIA (Secret key / service_role).';
+        } elseif (strpos($kunci_kini, 'sb_secret') === 0) {
+            $petunjuk = 'Bentuknya sudah benar (kunci rahasia baru). Kalau tetap ditolak: kemungkinan kuncinya milik project LAIN, atau ada karakter tambahan (tanda kutip / spasi) yang ikut tersalin.';
+        } elseif (strpos($kunci_kini, 'eyJ') === 0) {
+
+            /* Kunci lama (JWT): baca perannya untuk memastikan bukan anon */
+            $bagian = explode('.', $kunci_kini);
+            $b64    = strtr((string) ($bagian[1] ?? ''), '-_', '+/');
+            $b64   .= str_repeat('=', (4 - strlen($b64) % 4) % 4);
+            $muatan = json_decode((string) base64_decode($b64), true);
+            $peran  = is_array($muatan) ? (string) ($muatan['role'] ?? '') : '';
+
+            if ($peran === 'anon') {
+                $petunjuk = 'Itu kunci LAMA yang berperan ANON (publik) — yang dibutuhkan service_role.';
+            } elseif ($peran === 'service_role') {
+                $petunjuk = 'Bentuknya sudah benar (kunci lama service_role). Kalau tetap ditolak: kemungkinan kuncinya milik project LAIN.';
+            } else {
+                $petunjuk = 'Itu kunci lama (JWT) dengan peran tidak dikenal (' . $peran . ').';
+            }
+        } elseif (strlen($kunci_kini) < 40) {
+            $petunjuk = 'Kuncinya terlalu pendek — kelihatannya terpotong saat disalin.';
+        } else {
+            $petunjuk = 'Bentuk kunci tidak dikenali — salin ulang dari Supabase → Settings → API.';
+        }
+
         die(
             "<h2>Website belum bisa terhubung ke database Supabase</h2>"
             . "<p><b>Pesan dari Supabase:</b> " . e(db_error($koneksi)) . "</p>"
+            . "<p><b>Diagnosa cepat:</b></p><ul>"
+            . "<li>Alamat project: <code>" . e($url_kini !== '' ? $url_kini : '(kosong)') . "</code></li>"
+            . "<li>Kunci diambil dari variabel: <code>" . e($sumber_kunci) . "</code></li>"
+            . "<li>Isi kunci (disamarkan): <code>" . e($kunci_tampil) . "</code></li>"
+            . "<li>" . e($petunjuk) . "</li>"
+            . "</ul>"
             . "<p>Yang perlu diperiksa:</p>"
             . "<ol>"
             . "<li>Sudah menjalankan <code>database/schema-supabase.sql</code> di SQL Editor Supabase?</li>"
             . "<li>Environment Variable <code>SUPABASE_URL</code> dan <code>SUPABASE_SERVICE_KEY</code> "
-            . "sudah diisi dengan benar (kunci <b>service_role</b>, bukan anon)?</li>"
+            . "sudah diisi dengan benar (kunci <b>rahasia</b>, bukan publik)?</li>"
             . "<li>Alamat project masih benar (tidak salah ketik/kedaluwarsa)?</li>"
             . "</ol>"
         );

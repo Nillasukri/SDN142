@@ -93,13 +93,15 @@ function db_http(
             if ($errno === 0) {
                 $status  = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
                 $pesan   = (string) curl_error($ch);
-                curl_close($ch);
+
+                /* Catatan: curl_close() sengaja tidak dipakai — sejak PHP 8
+                   berkas tuas (handle) dibebaskan otomatis, dan di PHP 8.5
+                   fungsi itu mulai dilarang (deprecated). */
 
                 return $balasan === false ? '' : (string) $balasan;
             }
 
             $pesan = 'cURL: ' . curl_error($ch);
-            curl_close($ch);
 
         } else {
 

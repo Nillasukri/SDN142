@@ -203,7 +203,8 @@ function storage_http(
 
         $header_balasan = $terkumpul;
 
-        curl_close($ch);
+        /* Catatan: curl_close() sengaja tidak dipakai — otomatis dibebaskan
+           sejak PHP 8, dan dilarang (deprecated) mulai PHP 8.5. */
 
         return $balasan === false ? '' : (string) $balasan;
     }
