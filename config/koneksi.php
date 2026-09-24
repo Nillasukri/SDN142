@@ -81,10 +81,72 @@ if (db_lapisan() === 'supabase') {
     $db   = "db_sekolah";
     $port = 3306;
 
-    $koneksi = db_connect($host, $user, $pass, $db, $port);
+    /* Catatan: sejak PHP 8, kegagalan koneksi MySQL melempar pengecualian
+       (bukan mengembalikan false), jadi dibungkus try-catch di sini supaya
+       pesannya bisa dibuat jelas. */
+    $koneksi        = false;
+    $koneksi_pesan  = '';
+
+    try {
+        $koneksi = db_connect($host, $user, $pass, $db, $port);
+    } catch (Throwable $e) {
+        $koneksi_pesan = $e->getMessage();
+    }
 
     if (!$koneksi) {
-        die("Koneksi database gagal: " . db_connect_error());
+
+        /* Kalau ini terjadi di server online (Vercel), hampir pasti
+           penyebabnya Environment Variables SUPABASE_URL dan
+           SUPABASE_SERVICE_KEY belum diisi di Vercel, sehingga website
+           mengira dirinya dijalankan di XAMPP lalu mencoba membuka MySQL
+           (di Vercel tidak ada MySQL). Beritahu caranya dengan jelas. */
+        $di_server_online = getenv('VERCEL') !== false
+                         || getenv('AWS_LAMBDA_FUNCTION_NAME') !== false
+                         || getenv('LAMBDA_TASK_ROOT') !== false
+                         || is_dir('/var/task/user');
+
+        if ($di_server_online) {
+
+            http_response_code(500);
+            header('Content-Type: text/html; charset=UTF-8');
+
+            die(
+                '<!doctype html><html lang="id"><head><meta charset="utf-8">'
+                . '<meta name="viewport" content="width=device-width, initial-scale=1">'
+                . '<title>Database belum terhubung</title></head>'
+                . '<body style="font-family:system-ui,sans-serif;max-width:640px;margin:40px auto;padding:0 16px;color:#333;line-height:1.6">'
+                . '<h1 style="color:#c0392b;margin-bottom:4px">Database belum terhubung</h1>'
+                . '<p>Website sudah berhasil berjalan di Vercel, tetapi <b>kunci Supabase '
+                . 'belum dipasang</b>, jadi website mengira dirinya dijalankan di XAMPP dan '
+                . 'mencoba membuka MySQL &mdash; padahal di Vercel tidak ada MySQL.</p>'
+                . '<p><b>Cara memperbaiki (±2 menit):</b></p>'
+                . '<ol>'
+                . '<li>Buka <b>vercel.com</b> &rarr; proyek <b>sekolah</b> &rarr; '
+                . '<b>Settings</b> &rarr; <b>Environment Variables</b>.</li>'
+                . '<li>Tambah dua baris ini (nilainya diambil dari Supabase &rarr; '
+                . '<b>Project Settings &rarr; API</b>):'
+                . '<table style="border-collapse:collapse;margin:8px 0;font-size:14px">'
+                . '<tr><td style="border:1px solid #ccc;padding:6px"><code>SUPABASE_URL</code></td>'
+                . '<td style="border:1px solid #ccc;padding:6px"><code>https://xxxxx.supabase.co</code></td></tr>'
+                . '<tr><td style="border:1px solid #ccc;padding:6px"><code>SUPABASE_SERVICE_KEY</code><br>'
+                . '(nama <code>SUPABASE_SECRET_KEY</code> juga dikenal)</td>'
+                . '<td style="border:1px solid #ccc;padding:6px">kunci rahasia: <b>Secret key</b> '
+                . '(awalan <code>sb_secret_...</code>) &mdash; di tampilan lama disebut '
+                . '<b>service_role</b> (<code>eyJ...</code>). Bukan kunci publishable/anon</td></tr>'
+                . '</table></li>'
+                . '<li>Klik <b>Save</b> untuk masing-masing.</li>'
+                . '<li>Buka <b>Deployments</b> &rarr; baris paling atas &rarr; tombol '
+                . '<b>&hellip;</b> (tiga titik) &rarr; <b>Redeploy</b>.</li>'
+                . '</ol>'
+                . '<p>Setelah itu halaman ini hilang sendiri. Panduan lengkap ada di '
+                . '<code>PANDUAN-ONLINE.md</code> bagian <b>Langkah 3</b>.</p>'
+                . '<p style="color:#777;font-size:13px">Pesan teknisnya: '
+                . e($koneksi_pesan !== '' ? $koneksi_pesan : db_connect_error())
+                . '</p></body></html>'
+            );
+        }
+
+        die("Koneksi database gagal: " . e($koneksi_pesan !== '' ? $koneksi_pesan : db_connect_error()));
     }
 
     db_set_charset($koneksi, "utf8mb4");

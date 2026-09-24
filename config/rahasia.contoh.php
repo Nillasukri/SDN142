@@ -24,8 +24,10 @@ return [
        Contoh: https://abcdefghijklm.supabase.co  (TANPA garis miring di akhir) */
     'url' => '',
 
-    /* Key RAHASIA (service_role / secret key) — bukan key anon!
-       Ambil di: Project Settings -> API -> service_role (Reveal).
+    /* Key RAHASIA — bukan key publishable/anon!
+       Ambil di: Project Settings -> API.
+       Tampilan baru : "Secret key"    (awalan sb_secret_...)
+       Tampilan lama : "service_role"  (awalan eyJ..., di Legacy API Keys)
        Key ini bisa penuh mengakses database, jadi JANGAN disebar. */
     'service_key' => '',
 

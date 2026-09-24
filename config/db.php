@@ -69,7 +69,7 @@ function db_rahasia(): array
      c. nilai bawaan (kalau ada)
 --------------------------------------------------------------------- */
 
-function db_ambil_setelan(string $nama, string $bawaan = ''): string
+function db_baca_setelan(string $nama): string
 {
     static $peta = [
         'SUPABASE_URL'         => 'url',
@@ -93,7 +93,31 @@ function db_ambil_setelan(string $nama, string $bawaan = ''): string
         $nilai = '';
     }
 
-    $nilai = trim($nilai);
+    return trim($nilai);
+}
+
+function db_ambil_setelan(string $nama, string $bawaan = ''): string
+{
+    $nilai = db_baca_setelan($nama);
+
+    /* Nama lain yang juga dikenali.
+
+       Supabase yang baru menyebut kunci rahasianya dengan nama
+       SUPABASE_SECRET_KEY (nilainya berawalan sb_secret_...) dan
+       kunci publiknya SUPABASE_PUBLISHABLE_KEY. Supaya tidak bingung
+       memilih nama saat mengisi Environment Variables di Vercel,
+       dua-duanya dikenal di sini. */
+    if ($nilai === '') {
+
+        $nama_lain = [
+            'SUPABASE_SERVICE_KEY' => 'SUPABASE_SECRET_KEY',
+            'SUPABASE_ANON_KEY'    => 'SUPABASE_PUBLISHABLE_KEY',
+        ];
+
+        if (isset($nama_lain[$nama])) {
+            $nilai = db_baca_setelan($nama_lain[$nama]);
+        }
+    }
 
     return $nilai !== '' ? $nilai : $bawaan;
 }

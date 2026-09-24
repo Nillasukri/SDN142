@@ -60,7 +60,6 @@ function db_http(
     $status = 0;
     $pesan  = '';
 
-    $header[] = 'Expect:';                 // cegah balasan "100 Continue"
     $percobaan = 0;
 
     while ($percobaan < 2) {
@@ -75,7 +74,10 @@ function db_http(
             curl_setopt_array($ch, [
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_CUSTOMREQUEST  => $metode,
-                CURLOPT_HTTPHEADER     => $header,
+                /* "Expect:" kosong memerintahkan cURL tidak mengirim
+                   "Expect: 100-continue". Ini khusus cURL — di jalur
+                   tanpa-cURL header itu justru ditolak server (417). */
+                CURLOPT_HTTPHEADER     => array_merge($header, ['Expect:']),
                 CURLOPT_TIMEOUT        => 25,
                 CURLOPT_CONNECTTIMEOUT => 10,
                 CURLOPT_HTTP_VERSION   => CURL_HTTP_VERSION_1_1,
@@ -114,8 +116,20 @@ function db_http(
 
             $balasan = @file_get_contents($alamat, false, $konteks);
 
-            if (isset($http_response_header[0])
-                && preg_match('#HTTP/\S+\s+(\d{3})#', $http_response_header[0], $cocok)) {
+            /* PHP 8.4+: $http_response_header dilarang (deprecated);
+               di Vercel jalur tanpa-cURL inilah yang dipakai, jadi
+               gunakan fungsi penggantinya kalau tersedia. */
+            $baris_status = '';
+
+            if (function_exists('http_get_last_response_headers')) {
+                $baris_http  = http_get_last_response_headers() ?? [];
+                $baris_status = (string) ($baris_http[0] ?? '');
+            } elseif (isset($http_response_header[0])) {
+                $baris_status = (string) $http_response_header[0];
+            }
+
+            if ($baris_status !== ''
+                && preg_match('#HTTP/\S+\s+(\d{3})#', $baris_status, $cocok)) {
                 $status = (int) $cocok[1];
             }
 

@@ -209,8 +209,10 @@ function storage_http(
     }
 
     /* --- cara 2: tanpa cURL (bawaan PHP) --- */
-    $header[] = 'Expect:';
 
+    /* Catatan: JANGAN menambah header "Expect:" di sini. PHP memaknainya
+       sebagai header kosong dan server menolaknya dengan status 417.
+       (Header "Expect:" hanya berguna untuk membungkam cURL.) */
     $konteks = stream_context_create([
         'http' => [
             'method'        => $metode,
@@ -223,12 +225,25 @@ function storage_http(
 
     $balasan = @file_get_contents($alamat_api, false, $konteks);
 
-    if (isset($http_response_header) && is_array($http_response_header)) {
-        $header_balasan = $http_response_header;
+    /* Membaca header balasan.
 
-        if (preg_match('#\s(\d{3})\s#', (string) $http_response_header[0], $cocok)) {
-            $status = (int) $cocok[1];
-        }
+       Catatan penting: di PHP 8.4 ke atas variabel otomatis
+       $http_response_header sudah dilarang (deprecated) dan
+       menimbulkan peringatan. Server Vercel memakai PHP baru dan
+       TIDAK menyediakan cURL, jadi jalur tanpa-cURL inilah yang
+       dipakai di sana — karena itu fungsi penggantinya dipakai
+       kalau tersedia. */
+    if (function_exists('http_get_last_response_headers')) {
+        $header_balasan = http_get_last_response_headers() ?? [];
+    } elseif (isset($http_response_header) && is_array($http_response_header)) {
+        $header_balasan = $http_response_header;          // PHP lama (XAMPP)
+    } else {
+        $header_balasan = [];
+    }
+
+    if (isset($header_balasan[0])
+        && preg_match('#\s(\d{3})\s#', (string) $header_balasan[0], $cocok)) {
+        $status = (int) $cocok[1];
     }
 
     return $balasan === false ? '' : (string) $balasan;
