@@ -258,7 +258,7 @@ require_once "layouts/publik/navbar.php";
             class="hero-image"
             style="
                 background-image:
-                url('uploads/<?= e($banner["foto"]); ?>');
+                url('https://ghayvuppmdhqyhjbeopa.supabase.co/storage/v1/object/public/foto/<?= e($banner["foto"]); ?>');
             "
         ></div>
 
