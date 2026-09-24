@@ -425,7 +425,7 @@ require_once "../layouts/admin/topbar.php";
         reader.readAsDataURL(file);
     }
 
-    fotoInput.addEventListener('change', function () {
+    fotoInput?.addEventListener('change', function () {
 
         if (this.files && this.files.length > 0) {
             tampilkanPreview(this.files[0]);
@@ -437,7 +437,7 @@ require_once "../layouts/admin/topbar.php";
        DRAG & DROP
     ========================= */
 
-    uploadArea.addEventListener('dragover', function (event) {
+    uploadArea?.addEventListener('dragover', function (event) {
 
         event.preventDefault();
 
@@ -445,13 +445,13 @@ require_once "../layouts/admin/topbar.php";
 
     });
 
-    uploadArea.addEventListener('dragleave', function () {
+    uploadArea?.addEventListener('dragleave', function () {
 
         uploadArea.classList.remove('dragover');
 
     });
 
-    uploadArea.addEventListener('drop', function (event) {
+    uploadArea?.addEventListener('drop', function (event) {
 
         event.preventDefault();
 
@@ -487,7 +487,7 @@ require_once "../layouts/admin/topbar.php";
 
     const galeriForm = document.getElementById('galeriForm');
 
-    galeriForm.addEventListener('submit', function () {
+    galeriForm?.addEventListener('submit', function () {
 
         const submitButton = this.querySelector(
             'button[type="submit"]'
@@ -506,7 +506,3 @@ require_once "../layouts/admin/topbar.php";
 </script>
 
 <?php require_once "../layouts/admin/kaki.php"; ?>
-
-</body>
-</html>
-

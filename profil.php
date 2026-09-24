@@ -869,8 +869,3 @@ require_once "layouts/publik/navbar.php";
 ===================================================== -->
 
 <?php require_once "layouts/publik/kaki.php"; ?>
-
-
-</body>
-
-</html>

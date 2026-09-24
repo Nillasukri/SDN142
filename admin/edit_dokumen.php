@@ -761,7 +761,7 @@ require_once "../layouts/admin/topbar.php";
 
         if (fileInput) {
 
-            fileInput.addEventListener(
+            fileInput?.addEventListener(
                 "change",
                 function () {
 
@@ -794,7 +794,7 @@ require_once "../layouts/admin/topbar.php";
                 "dragover"
             ].forEach(function (eventName) {
 
-                uploadArea.addEventListener(
+                uploadArea?.addEventListener(
                     eventName,
                     function (event) {
 
@@ -815,7 +815,7 @@ require_once "../layouts/admin/topbar.php";
                 "drop"
             ].forEach(function (eventName) {
 
-                uploadArea.addEventListener(
+                uploadArea?.addEventListener(
                     eventName,
                     function (event) {
 
@@ -831,7 +831,7 @@ require_once "../layouts/admin/topbar.php";
             });
 
 
-            uploadArea.addEventListener(
+            uploadArea?.addEventListener(
                 "drop",
                 function (event) {
 
@@ -860,7 +860,7 @@ require_once "../layouts/admin/topbar.php";
 
         if (fileInput) {
 
-            fileInput.addEventListener(
+            fileInput?.addEventListener(
                 "change",
                 function () {
 
@@ -903,7 +903,3 @@ require_once "../layouts/admin/topbar.php";
 </script>
 
 <?php require_once "../layouts/admin/kaki.php"; ?>
-
-</body>
-
-</html>

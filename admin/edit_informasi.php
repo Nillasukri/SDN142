@@ -998,7 +998,7 @@ const previewImage =
     );
 
 
-fotoInput.addEventListener(
+fotoInput?.addEventListener(
     "change",
     function() {
 
@@ -1116,8 +1116,3 @@ fotoInput.addEventListener(
 </script>
 
 <?php require_once "../layouts/admin/kaki.php"; ?>
-
-
-</body>
-
-</html>

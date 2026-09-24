@@ -62,7 +62,7 @@ function tutupMenu() {
 
 if (mobileMenuBtn) {
 
-    mobileMenuBtn.addEventListener(
+    mobileMenuBtn?.addEventListener(
         "click",
         function () {
 
@@ -90,7 +90,7 @@ if (mobileMenuBtn) {
 
 if (overlay) {
 
-    overlay.addEventListener(
+    overlay?.addEventListener(
         "click",
         function () {
 

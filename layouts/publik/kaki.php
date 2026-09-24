@@ -106,7 +106,7 @@ const menu =
 
 if (menuButton && menu) {
 
-    menuButton.addEventListener(
+    menuButton?.addEventListener(
         "click",
         function () {
 

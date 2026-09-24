@@ -580,8 +580,3 @@ function filterDokumen(
 </script>
 
 <?php require_once "layouts/publik/kaki.php"; ?>
-
-
-</body>
-
-</html>

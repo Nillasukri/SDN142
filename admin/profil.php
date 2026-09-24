@@ -1547,8 +1547,3 @@ require_once "../layouts/admin/topbar.php";
 
 
 <?php require_once "../layouts/admin/kaki.php"; ?>
-
-
-</body>
-
-</html>

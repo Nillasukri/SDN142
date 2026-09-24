@@ -561,7 +561,7 @@ const eyeIcon =
     );
 
 
-togglePassword.addEventListener(
+togglePassword?.addEventListener(
     "click",
     function () {
 

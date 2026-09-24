@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             pasangSeret(kotak);
 
-            kotak.addEventListener(
+            kotak?.addEventListener(
                 "scroll",
                 function () {
 
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
         kotakDanTombol.get(kotak).push(tombol);
 
 
-        tombol.addEventListener(
+        tombol?.addEventListener(
             "click",
             function () {
 
@@ -233,7 +233,7 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
 
-        kotak.addEventListener(
+        kotak?.addEventListener(
             "pointerdown",
             function (kejadian) {
 
@@ -275,7 +275,7 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
 
-        kotak.addEventListener(
+        kotak?.addEventListener(
             "pointermove",
             function (kejadian) {
 
@@ -322,16 +322,16 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        kotak.addEventListener("pointerup", lepaskanSeret);
+        kotak?.addEventListener("pointerup", lepaskanSeret);
 
-        kotak.addEventListener("pointercancel", lepaskanSeret);
+        kotak?.addEventListener("pointercancel", lepaskanSeret);
 
-        kotak.addEventListener("lostpointercapture", lepaskanSeret);
+        kotak?.addEventListener("lostpointercapture", lepaskanSeret);
 
 
         /* Klik yang tidak disengaja setelah menyeret diabaikan */
 
-        kotak.addEventListener(
+        kotak?.addEventListener(
             "click",
             function (kejadian) {
 

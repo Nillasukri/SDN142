@@ -771,7 +771,7 @@ require_once "../layouts/admin/topbar.php";
 
         if (fotoInput) {
 
-            fotoInput.addEventListener(
+            fotoInput?.addEventListener(
                 'change',
                 function () {
 
@@ -886,7 +886,3 @@ require_once "../layouts/admin/topbar.php";
 </script>
 
 <?php require_once "../layouts/admin/kaki.php"; ?>
-
-</body>
-
-</html>

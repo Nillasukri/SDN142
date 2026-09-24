@@ -788,8 +788,3 @@ require_once "../layouts/admin/topbar.php";
 </script>
 
 <?php require_once "../layouts/admin/kaki.php"; ?>
-
-
-</body>
-
-</html>

@@ -801,7 +801,7 @@ require_once "../layouts/admin/topbar.php";
         ); 
  
  
-    fotoInput.addEventListener( 
+    fotoInput?.addEventListener( 
         'change', 
         function() { 
  
@@ -887,7 +887,7 @@ require_once "../layouts/admin/topbar.php";
         ); 
  
  
-    uploadArea.addEventListener( 
+    uploadArea?.addEventListener( 
         'click', 
         function(event) { 
  
@@ -937,8 +937,3 @@ require_once "../layouts/admin/topbar.php";
 </script>
 
 <?php require_once "../layouts/admin/kaki.php"; ?>
- 
- 
-</body> 
- 
-</html>

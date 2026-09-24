@@ -941,8 +941,3 @@ require_once "layouts/publik/navbar.php";
 <!-- TOMBOL GESER KARTU GURU -->
 
 <script src="assets/js/geser-guru.js"></script>
-
-
-</body>
-
-</html>

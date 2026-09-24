@@ -738,7 +738,7 @@ const toggleButtons =
 toggleButtons.forEach(
     function (button) {
 
-        button.addEventListener(
+        button?.addEventListener(
             "click",
             function () {
 
@@ -801,7 +801,7 @@ const securityForm =
     );
 
 
-securityForm.addEventListener(
+securityForm?.addEventListener(
     "submit",
     function (event) {
 
@@ -860,8 +860,3 @@ securityForm.addEventListener(
 </script>
 
 <?php require_once "../layouts/admin/kaki.php"; ?>
-
-
-</body>
-
-</html>
