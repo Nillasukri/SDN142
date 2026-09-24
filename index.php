@@ -490,18 +490,6 @@ require_once "layouts/publik/navbar.php";
                 </div>
 
 
-                <br>
-
-
-                <a
-                    href="profil.php"
-                    class="button button-yellow"
-                >
-
-                    Lihat Profil Sekolah
-
-                </a>
-
             </div>
 
         </div>
