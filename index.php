@@ -299,7 +299,10 @@ require_once "layouts/publik/navbar.php";
                 <?php endif; ?>
 
 
-                <?php if (!empty($banner["tombol_link"])): ?>
+                <?php if (
+                    !empty($banner["tombol_link"]) &&
+                    trim((string)($banner["tombol_text"] ?? "")) !== "Lihat Profil Sekolah"
+                ): ?>
 
                     <a
                         href="<?= e($banner["tombol_link"]); ?>"
@@ -315,14 +318,7 @@ require_once "layouts/publik/navbar.php";
                 <?php endif; ?>
 
 
-                <a
-                    href="profil.php"
-                    class="button button-white"
-                >
 
-                    Profil Sekolah
-
-                </a>
 
 
             <?php else: ?>
