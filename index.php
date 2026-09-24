@@ -344,24 +344,7 @@ require_once "layouts/publik/navbar.php";
                 </p>
 
 
-                <a
-                    href="profil.php"
-                    class="button button-yellow"
-                >
-
-                    Profil Sekolah
-
-                </a>
-
-
-                <a
-                    href="informasi.php"
-                    class="button button-white"
-                >
-
-                    Informasi Sekolah
-
-                </a>
+      
 
             <?php endif; ?>
 
