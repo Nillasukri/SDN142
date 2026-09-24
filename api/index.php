@@ -86,29 +86,23 @@ function fc_layani_unggahan(string $path): void
         fc_tidak_ditemukan();
     }
 
-    if (is_file(APP_ROOT . $path)) {
-        fc_kirim_berkas(APP_ROOT . $path);
-    }
-
-    /* Berkas baru: periksa Supabase Storage */
+    /* Utamakan Supabase Storage saat mode online */
     require_once APP_ROOT . '/config/db.php';
     require_once APP_ROOT . '/config/storage.php';
 
     db_muat_lapisan('otomatis');
 
     if (storage_aktif()) {
-
         $objek = storage_objek($path);
-
-        if ($objek !== '' && storage_ada($objek)) {
-
-            /* Alamat publik ini boleh diingat browser selama 1 hari,
-               supaya gambar tidak selalu memanggil fungsi PHP. */
+        if ($objek !== '') {
             header('Cache-Control: public, max-age=86400');
             header('Location: ' . storage_url($objek, true), true, 302);
-
             exit;
         }
+    }
+
+    if (is_file(APP_ROOT . $path)) {
+        fc_kirim_berkas(APP_ROOT . $path);
     }
 
     fc_tidak_ditemukan();

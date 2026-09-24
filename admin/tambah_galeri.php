@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $finfo = finfo_open(FILEINFO_MIME_TYPE);
             $mime = finfo_file($finfo, $file['tmp_name']);
-            finfo_close($finfo);
+            /* finfo auto-closed in PHP 8.5+ */
 
             if (!in_array($mime, $allowed_mime, true)) {
                 $error = 'Format foto tidak diperbolehkan. Gunakan JPG, PNG, WEBP, atau GIF.';

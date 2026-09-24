@@ -197,7 +197,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 $foto['tmp_name'] 
                             ); 
  
-                        finfo_close($finfo); 
+                        /* finfo auto-closed in PHP 8.5+ */ 
  
  
                         $allowed_mime = [ 

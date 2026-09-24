@@ -182,7 +182,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $tmp_file
                 );
 
-                finfo_close($finfo);
+                /* finfo auto-closed in PHP 8.5+ */
 
                 if (!in_array($mime, $allowed_mime)) {
 

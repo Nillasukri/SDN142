@@ -273,7 +273,7 @@ if (
                     ); 
  
  
-                finfo_close($finfo); 
+                /* finfo auto-closed in PHP 8.5+ */ 
  
  
                 $mimeDiizinkan = [ 

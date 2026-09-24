@@ -400,7 +400,7 @@ if (
                     $file['tmp_name']
                 );
 
-            finfo_close($finfo);
+            /* finfo auto-closed in PHP 8.5+ */
 
 
             if (
@@ -675,7 +675,7 @@ if (
                 );
 
 
-            finfo_close($finfo);
+            /* finfo auto-closed in PHP 8.5+ */
 
 
             if (

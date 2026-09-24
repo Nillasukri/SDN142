@@ -99,3 +99,30 @@ if (!function_exists('pesan_status')) {
         ];
     }
 }
+
+/**
+ * Menghasilkan URL publik untuk file unggahan (Supabase Storage atau lokal).
+ * Mencegah 404 dan direct hit serverless Vercel untuk gambar/dokumen.
+ */
+function url_unggahan(?string $path): string
+{
+    if (empty($path)) {
+        return '';
+    }
+
+    $clean = str_replace('\\', '/', trim($path));
+
+    // Bersihkan prefix ../uploads/ atau uploads/
+    if (strpos($clean, 'uploads/') !== false) {
+        $pos = strpos($clean, 'uploads/');
+        $clean = substr($clean, $pos + strlen('uploads/'));
+    }
+
+    $clean = ltrim($clean, '/');
+
+    if (function_exists('storage_aktif') && storage_aktif()) {
+        return storage_url($clean, true);
+    }
+
+    return 'uploads/' . $clean;
+}
