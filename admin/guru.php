@@ -495,7 +495,7 @@ require_once "../layouts/admin/topbar.php";
                                 <?php
 
                                 $foto_path =
-                                    "../uploads/" .
+                                    "../uploads/guru/" .
                                     $item['foto'];
 
                                 $foto_exists =
