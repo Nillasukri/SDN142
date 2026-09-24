@@ -12,19 +12,23 @@ session_start();
    CEK LOGIN ADMIN
 ===================================================== */
 
-if (!isset($_SESSION["admin_id"])) {
+/* -------------------------------------------------------------
+   WAJIB LOGIN
+   Di mode lokal (XAMPP) cukup session PHP seperti biasa.
+   Di mode online (Vercel) penanda login juga dibaca dari cookie
+   `sesi_admin`, supaya admin tidak ter-logout sendiri.
+   Penjelasan lengkap ada di config/auth_admin.php.
+------------------------------------------------------------- */
+require_once "../config/koneksi.php";
+require_once "../config/auth_admin.php";
 
-    header("Location: login.php");
-    exit;
-
-}
+auth_paksa_login($koneksi, "login.php");
 
 
 /* =====================================================
    KONEKSI DATABASE
 ===================================================== */
 
-require_once "../config/koneksi.php";
 
 
 /* =====================================================

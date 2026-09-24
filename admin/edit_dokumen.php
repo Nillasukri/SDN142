@@ -1,12 +1,18 @@
 <?php
 session_start();
 
-if (!isset($_SESSION["admin_id"])) {
-    header("Location: login.php");
-    exit;
-}
-
+/* -------------------------------------------------------------
+   WAJIB LOGIN
+   Di mode lokal (XAMPP) cukup session PHP seperti biasa.
+   Di mode online (Vercel) penanda login juga dibaca dari cookie
+   `sesi_admin`, supaya admin tidak ter-logout sendiri.
+   Penjelasan lengkap ada di config/auth_admin.php.
+------------------------------------------------------------- */
 require_once "../config/koneksi.php";
+require_once "../config/auth_admin.php";
+
+auth_paksa_login($koneksi, "login.php");
+
 
 
 /* =========================================================
@@ -162,8 +168,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 $folder_upload = "../uploads/dokumen/";
 
-                if (!is_dir($folder_upload)) {
-                    mkdir($folder_upload, 0755, true);
+                if (!unggah_ada_folder($folder_upload)) {
+                    unggah_mkdir($folder_upload, 0755, true);
                 }
 
                 $nama_file_baru =
@@ -173,7 +179,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     $folder_upload . $nama_file_baru;
 
                 if (
-                    !move_uploaded_file(
+                    !unggah_simpan(
                         $tmp_file,
                         $lokasi_file_baru
                     )
@@ -235,8 +241,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     "../uploads/dokumen/" .
                     basename($file_lama_yang_dihapus);
 
-                if (file_exists($file_lama)) {
-                    unlink($file_lama);
+                if (unggah_ada($file_lama)) {
+                    unggah_hapus($file_lama);
                 }
             }
 
@@ -254,8 +260,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     "../uploads/dokumen/" .
                     basename($nama_file_baru);
 
-                if (file_exists($file_baru)) {
-                    unlink($file_baru);
+                if (unggah_ada($file_baru)) {
+                    unggah_hapus($file_baru);
                 }
             }
 
@@ -281,11 +287,11 @@ function ukuranFile($filename)
         "../uploads/dokumen/" .
         basename($filename);
 
-    if (!file_exists($path)) {
+    if (!unggah_ada($path)) {
         return "-";
     }
 
-    $size = filesize($path);
+    $size = unggah_ukuran($path);
 
     if ($size >= 1024 * 1024) {
         return number_format(

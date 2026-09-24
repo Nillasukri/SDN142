@@ -7,19 +7,23 @@
 
 session_start();
 
-if (!isset($_SESSION["admin_id"])) {
+/* -------------------------------------------------------------
+   WAJIB LOGIN
+   Di mode lokal (XAMPP) cukup session PHP seperti biasa.
+   Di mode online (Vercel) penanda login juga dibaca dari cookie
+   `sesi_admin`, supaya admin tidak ter-logout sendiri.
+   Penjelasan lengkap ada di config/auth_admin.php.
+------------------------------------------------------------- */
+require_once "../config/koneksi.php";
+require_once "../config/auth_admin.php";
 
-    header("Location: login.php");
-
-    exit;
-}
+auth_paksa_login($koneksi, "login.php");
 
 
 /* =====================================================
    KONEKSI DATABASE
 ===================================================== */
 
-require_once "../config/koneksi.php";
 
 
 /* =====================================================
@@ -358,13 +362,13 @@ if (
                         ============================= */
 
                         if (
-                            !is_dir(
+                            !unggah_ada_folder(
                                 $folderUpload
                             )
                         ) {
 
                             if (
-                                !mkdir(
+                                !unggah_mkdir(
                                     $folderUpload,
                                     0755,
                                     true
@@ -405,7 +409,7 @@ if (
 
 
                             if (
-                                move_uploaded_file(
+                                unggah_simpan(
                                     $_FILES["foto"]["tmp_name"],
                                     $targetFile
                                 )
@@ -461,13 +465,13 @@ if (
 
                 if (
                     $namaFotoBaru !== null &&
-                    file_exists(
+                    unggah_ada(
                         $folderUpload .
                         $namaFotoBaru
                     )
                 ) {
 
-                    unlink(
+                    unggah_hapus(
                         $folderUpload .
                         $namaFotoBaru
                     );
@@ -527,11 +531,11 @@ if (
 
 
                         if (
-                            file_exists($fileLama) &&
-                            is_file($fileLama)
+                            unggah_ada($fileLama) &&
+                            unggah_ada($fileLama)
                         ) {
 
-                            unlink($fileLama);
+                            unggah_hapus($fileLama);
                         }
                     }
 
@@ -565,13 +569,13 @@ if (
 
                     if (
                         $namaFotoBaru !== null &&
-                        file_exists(
+                        unggah_ada(
                             $folderUpload .
                             $namaFotoBaru
                         )
                     ) {
 
-                        unlink(
+                        unggah_hapus(
                             $folderUpload .
                             $namaFotoBaru
                         );
@@ -826,7 +830,7 @@ require_once "../layouts/admin/topbar.php";
 
                         <?php if (
                             !empty($fotoPreview) &&
-                            file_exists($fotoPreview)
+                            unggah_ada($fotoPreview)
                         ): ?>
 
 

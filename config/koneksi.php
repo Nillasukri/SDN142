@@ -28,6 +28,11 @@ require_once __DIR__ . '/bantuan.php';
 /* Pemilih lapisan database (config/db.php) */
 require_once __DIR__ . '/db.php';
 
+/* Penyimpanan foto & dokumen (config/storage.php).
+   Di mode lokal berkas disimpan di folder uploads/ seperti biasa,
+   di mode online dikirim ke Supabase Storage. */
+require_once __DIR__ . '/storage.php';
+
 /* --- Pengaturan mode: 'otomatis', 'lokal', atau 'supabase' --- */
 $mode = 'otomatis';
 

@@ -2,12 +2,18 @@
 
 session_start();
 
-if (!isset($_SESSION['admin_id'])) {
-    header("Location: login.php");
-    exit;
-}
-
+/* -------------------------------------------------------------
+   WAJIB LOGIN
+   Di mode lokal (XAMPP) cukup session PHP seperti biasa.
+   Di mode online (Vercel) penanda login juga dibaca dari cookie
+   `sesi_admin`, supaya admin tidak ter-logout sendiri.
+   Penjelasan lengkap ada di config/auth_admin.php.
+------------------------------------------------------------- */
 require_once "../config/koneksi.php";
+require_once "../config/auth_admin.php";
+
+auth_paksa_login($koneksi, "login.php");
+
 
 
 /* =========================================================
@@ -426,9 +432,9 @@ if (
                     "../uploads/";
 
 
-                if (!is_dir($folder)) {
+                if (!unggah_ada_folder($folder)) {
 
-                    mkdir(
+                    unggah_mkdir(
                         $folder,
                         0777,
                         true
@@ -470,7 +476,7 @@ if (
 
 
                 if (
-                    move_uploaded_file(
+                    unggah_simpan(
                         $file['tmp_name'],
                         $target
                     )
@@ -523,13 +529,13 @@ if (
                                 !empty(
                                     $foto_lama
                                 ) &&
-                                file_exists(
+                                unggah_ada(
                                     "../uploads/" .
                                     $foto_lama
                                 )
                             ) {
 
-                                unlink(
+                                unggah_hapus(
                                     "../uploads/" .
                                     $foto_lama
                                 );
@@ -552,12 +558,12 @@ if (
 
 
                             if (
-                                file_exists(
+                                unggah_ada(
                                     $target
                                 )
                             ) {
 
-                                unlink($target);
+                                unggah_hapus($target);
                             }
 
 
@@ -570,12 +576,12 @@ if (
 
 
                         if (
-                            file_exists(
+                            unggah_ada(
                                 $target
                             )
                         ) {
 
-                            unlink($target);
+                            unggah_hapus($target);
                         }
 
 
@@ -701,9 +707,9 @@ if (
                     "../uploads/";
 
 
-                if (!is_dir($folder)) {
+                if (!unggah_ada_folder($folder)) {
 
-                    mkdir(
+                    unggah_mkdir(
                         $folder,
                         0777,
                         true
@@ -745,7 +751,7 @@ if (
 
 
                 if (
-                    move_uploaded_file(
+                    unggah_simpan(
                         $file['tmp_name'],
                         $target
                     )
@@ -796,13 +802,13 @@ if (
                                 !empty(
                                     $logo_lama
                                 ) &&
-                                file_exists(
+                                unggah_ada(
                                     "../uploads/" .
                                     $logo_lama
                                 )
                             ) {
 
-                                unlink(
+                                unggah_hapus(
                                     "../uploads/" .
                                     $logo_lama
                                 );
@@ -825,12 +831,12 @@ if (
 
 
                             if (
-                                file_exists(
+                                unggah_ada(
                                     $target
                                 )
                             ) {
 
-                                unlink($target);
+                                unggah_hapus($target);
                             }
 
 
@@ -843,12 +849,12 @@ if (
 
 
                         if (
-                            file_exists(
+                            unggah_ada(
                                 $target
                             )
                         ) {
 
-                            unlink($target);
+                            unggah_hapus($target);
                         }
 
 

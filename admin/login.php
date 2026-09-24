@@ -26,6 +26,21 @@ if (isset($_SESSION["admin_id"])) {
 
 require_once "../config/koneksi.php";
 
+/* Penanda login (cookie) — dipakai hanya di mode online.
+   Lihat config/auth_admin.php. */
+require_once "../config/auth_admin.php";
+
+
+/* Kalau cookie-nya masih sah, admin tidak perlu mengetik ulang
+   username & password (session PHP bisa saja sudah hilang). */
+if (auth_admin_dari_cookie($koneksi)) {
+
+    header("Location: dashboard.php");
+    exit;
+
+}
+
+
 
 /* =====================================================
 /* =====================================================
@@ -157,6 +172,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                     $_SESSION["admin_nama"] =
                         $admin["nama"];
+
+                    /* -------------------------------------------------
+                       PENANDA LOGIN DI COOKIE (untuk mode online)
+                       Menyimpan token di tabel sesi_admin + cookie
+                       `sesi_admin`, supaya login tidak mudah hilang
+                       di Vercel. Di mode lokal baris ini tidak
+                       mengubah apa pun (hanya mengisi session).
+                    ------------------------------------------------- */
+
+                    auth_buat_sesi(
+                        $koneksi,
+                        (int) $admin["id"],
+                        (string) $admin["nama"],
+                        (string) $admin["username"]
+                    );
+
 
 
                     header(

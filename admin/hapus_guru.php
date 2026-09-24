@@ -4,13 +4,19 @@
 session_start();
 
 // Cek apakah admin sudah login
-if (!isset($_SESSION['admin_id'])) {
-    header("Location: login.php");
-    exit;
-}
+/* -------------------------------------------------------------
+   WAJIB LOGIN
+   Di mode lokal (XAMPP) cukup session PHP seperti biasa.
+   Di mode online (Vercel) penanda login juga dibaca dari cookie
+   `sesi_admin`, supaya admin tidak ter-logout sendiri.
+   Penjelasan lengkap ada di config/auth_admin.php.
+------------------------------------------------------------- */
+require_once "../config/koneksi.php";
+require_once "../config/auth_admin.php";
+
+auth_paksa_login($koneksi, "login.php");
 
 // Koneksi database
-require_once "../config/koneksi.php";
 
 // Cek apakah ID tersedia
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
@@ -70,8 +76,8 @@ if (db_stmt_execute($stmt_hapus)) {
 
         $file_foto = "../uploads/guru/" . $data['foto'];
 
-        if (file_exists($file_foto)) {
-            unlink($file_foto);
+        if (unggah_ada($file_foto)) {
+            unggah_hapus($file_foto);
         }
     }
 

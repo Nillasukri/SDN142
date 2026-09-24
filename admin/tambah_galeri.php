@@ -1,12 +1,18 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['admin_id'])) {
-    header("Location: login.php");
-    exit;
-}
-
+/* -------------------------------------------------------------
+   WAJIB LOGIN
+   Di mode lokal (XAMPP) cukup session PHP seperti biasa.
+   Di mode online (Vercel) penanda login juga dibaca dari cookie
+   `sesi_admin`, supaya admin tidak ter-logout sendiri.
+   Penjelasan lengkap ada di config/auth_admin.php.
+------------------------------------------------------------- */
 require_once "../config/koneksi.php";
+require_once "../config/auth_admin.php";
+
+auth_paksa_login($koneksi, "login.php");
+
 
 
 $nama_admin = $_SESSION['admin_nama'] ?? 'Administrator';
@@ -78,8 +84,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $folder = "../uploads/galeri/";
 
-            if (!is_dir($folder)) {
-                mkdir($folder, 0777, true);
+            if (!unggah_ada_folder($folder)) {
+                unggah_mkdir($folder, 0777, true);
             }
 
             $extension_map = [
@@ -95,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $target = $folder . $nama_file;
 
-            if (!move_uploaded_file($file['tmp_name'], $target)) {
+            if (!unggah_simpan($file['tmp_name'], $target)) {
                 $error = 'Foto gagal disimpan ke server.';
             } else {
 
@@ -130,8 +136,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         db_stmt_close($stmt);
 
                         /* Hapus file jika database gagal */
-                        if (file_exists($target)) {
-                            unlink($target);
+                        if (unggah_ada($target)) {
+                            unggah_hapus($target);
                         }
 
                         $error = 'Data foto gagal disimpan ke database.';
@@ -139,8 +145,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 } else {
 
-                    if (file_exists($target)) {
-                        unlink($target);
+                    if (unggah_ada($target)) {
+                        unggah_hapus($target);
                     }
 
                     $error = 'Terjadi kesalahan pada database.';

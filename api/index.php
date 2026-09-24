@@ -21,6 +21,101 @@ define('APP_ROOT', dirname(__DIR__));
 
 
 /**
+ * Menyimpulkan jenis berkas (Content-Type) dari ekstensinya.
+ */
+function fc_jenis_berkas(string $berkas): string
+{
+    $peta = [
+        'jpg'  => 'image/jpeg',
+        'jpeg' => 'image/jpeg',
+        'png'  => 'image/png',
+        'gif'  => 'image/gif',
+        'webp' => 'image/webp',
+        'svg'  => 'image/svg+xml',
+        'ico'  => 'image/x-icon',
+        'pdf'  => 'application/pdf',
+        'doc'  => 'application/msword',
+        'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        'xls'  => 'application/vnd.ms-excel',
+        'xlsx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        'ppt'  => 'application/vnd.ms-powerpoint',
+        'pptx' => 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+        'zip'  => 'application/zip',
+        'rar'  => 'application/vnd.rar',
+        'txt'  => 'text/plain; charset=UTF-8',
+        'css'  => 'text/css; charset=UTF-8',
+        'js'   => 'application/javascript; charset=UTF-8',
+    ];
+
+    $ekstensi = strtolower(pathinfo($berkas, PATHINFO_EXTENSION));
+
+    return $peta[$ekstensi] ?? 'application/octet-stream';
+}
+
+/**
+ * Mengirim isi berkas dari folder proyek ke browser.
+ */
+function fc_kirim_berkas(string $berkas): void
+{
+    header('Content-Type: ' . fc_jenis_berkas($berkas));
+    header('Content-Length: ' . (string) filesize($berkas));
+    header('Cache-Control: public, max-age=31536000');
+
+    readfile($berkas);
+
+    exit;
+}
+
+/**
+ * Melayani permintaan /uploads/...
+ *
+ * Urutannya:
+ *   1. berkas ada di folder proyek  -> kirim langsung
+ *   2. berkas ada di Supabase Storage -> alihkan (redirect) ke alamat publiknya
+ *   3. tidak ada di dua-duanya       -> 404
+ */
+function fc_layani_unggahan(string $path): void
+{
+    /* Berkas PHP tidak boleh dijalankan dari dalam uploads/ */
+    if (preg_match('/\.(php|phtml|phar)$/i', $path)) {
+        fc_tidak_ditemukan();
+    }
+
+    /* Tolak trik keluar folder (../) */
+    if (strpos($path, '..') !== false) {
+        fc_tidak_ditemukan();
+    }
+
+    if (is_file(APP_ROOT . $path)) {
+        fc_kirim_berkas(APP_ROOT . $path);
+    }
+
+    /* Berkas baru: periksa Supabase Storage */
+    require_once APP_ROOT . '/config/db.php';
+    require_once APP_ROOT . '/config/storage.php';
+
+    db_muat_lapisan('otomatis');
+
+    if (storage_aktif()) {
+
+        $objek = storage_objek($path);
+
+        if ($objek !== '' && storage_ada($objek)) {
+
+            /* Alamat publik ini boleh diingat browser selama 1 hari,
+               supaya gambar tidak selalu memanggil fungsi PHP. */
+            header('Cache-Control: public, max-age=86400');
+            header('Location: ' . storage_url($objek, true), true, 302);
+
+            exit;
+        }
+    }
+
+    fc_tidak_ditemukan();
+}
+
+
+/**
  * Tampilkan halaman 404 lalu hentikan proses.
  */
 function fc_tidak_ditemukan(): void
@@ -65,13 +160,9 @@ if ($path === '') {
    untuk foto lama yang ikut diunggah ke GitHub.
 --------------------------------------------------------------------- */
 
-foreach (['/assets/', '/uploads/'] as $awalan) {
+/* --- /assets/ : CSS, JS, gambar tampilan (tidak pernah berubah) --- */
+if (strpos($path, '/assets/') === 0) {
 
-    if (strpos($path, $awalan) !== 0) {
-        continue;
-    }
-
-    /* Berkas PHP tidak boleh dijalankan dari dalam uploads/ */
     if (preg_match('/\.(php|phtml|phar)$/i', $path)) {
         fc_tidak_ditemukan();
     }
@@ -81,6 +172,19 @@ foreach (['/assets/', '/uploads/'] as $awalan) {
     }
 
     fc_tidak_ditemukan();
+}
+
+/* --- /uploads/ : foto & dokumen unggahan ---
+
+   Ada DUA kemungkinan tempat berkasnya:
+     1. Ikut diunggah ke GitHub (foto lama)  -> dikirim langsung dari folder proyek
+     2. Ada di Supabase Storage (unggahan baru dari dashboard admin)
+        -> dialihkan ke alamat publik Storage, jadi berkasnya diambil
+           langsung dari Supabase (tidak lewat fungsi PHP, aman untuk
+           berkas besar dan hemat kuota Vercel).
+--------------------------------------------------------------------- */
+if (strpos($path, '/uploads/') === 0) {
+    fc_layani_unggahan($path);
 }
 
 

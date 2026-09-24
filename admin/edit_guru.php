@@ -7,12 +7,18 @@ session_start();
 /* =========================
    CEK LOGIN ADMIN
 ========================= */
-if (!isset($_SESSION['admin_id'])) {
-    header("Location: login.php");
-    exit;
-}
-
+/* -------------------------------------------------------------
+   WAJIB LOGIN
+   Di mode lokal (XAMPP) cukup session PHP seperti biasa.
+   Di mode online (Vercel) penanda login juga dibaca dari cookie
+   `sesi_admin`, supaya admin tidak ter-logout sendiri.
+   Penjelasan lengkap ada di config/auth_admin.php.
+------------------------------------------------------------- */
 require_once "../config/koneksi.php";
+require_once "../config/auth_admin.php";
+
+auth_paksa_login($koneksi, "login.php");
+
 
 /* =========================
 /* =========================
@@ -193,9 +199,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 $folder_upload = "../uploads/guru/";
 
-                if (!is_dir($folder_upload)) {
+                if (!unggah_ada_folder($folder_upload)) {
 
-                    mkdir(
+                    unggah_mkdir(
                         $folder_upload,
                         0755,
                         true
@@ -215,7 +221,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $file_foto_baru;
 
                 if (
-                    move_uploaded_file(
+                    unggah_simpan(
                         $tmp_file,
                         $tujuan_file
                     )
@@ -298,12 +304,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $foto_lama;
 
                     if (
-                        file_exists(
+                        unggah_ada(
                             $file_lama
                         )
                     ) {
 
-                        unlink($file_lama);
+                        unggah_hapus($file_lama);
                     }
                 }
 
@@ -337,12 +343,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $file_foto_baru;
 
                     if (
-                        file_exists(
+                        unggah_ada(
                             $file_gagal
                         )
                     ) {
 
-                        unlink($file_gagal);
+                        unggah_hapus($file_gagal);
                     }
                 }
 
@@ -365,12 +371,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $file_foto_baru;
 
                 if (
-                    file_exists(
+                    unggah_ada(
                         $file_gagal
                     )
                 ) {
 
-                    unlink($file_gagal);
+                    unggah_hapus($file_gagal);
                 }
             }
 
