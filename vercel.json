@@ -21,7 +21,7 @@
     },
     {
       "src": "/uploads/(.*)",
-      "dest": "/uploads/$1"
+      "dest": "/api/index.php"
     },
     {
       "src": "/(.*)",

@@ -64,7 +64,7 @@ if (!isset($logo_sekolah)) {
 
                 <?php if (
                     !empty($logo_sekolah) &&
-                    file_exists("../uploads/" . basename($logo_sekolah))
+                    unggah_ada("../uploads/" . basename($logo_sekolah))
                 ): ?>
 
                     <img
