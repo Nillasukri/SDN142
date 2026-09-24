@@ -413,6 +413,7 @@ require_once "../layouts/admin/topbar.php";
 
     <!-- =========================
          SIDEBAR
+    ========================= -->
 
 
     <div
@@ -423,6 +424,7 @@ require_once "../layouts/admin/topbar.php";
 
     <!-- =========================
          MAIN
+    ========================= -->
 
             <!-- BREADCRUMB -->
 

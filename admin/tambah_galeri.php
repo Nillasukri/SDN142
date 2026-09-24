@@ -182,11 +182,13 @@ require_once "../layouts/admin/topbar.php";
 
 <!-- =========================
      SIDEBAR
+========================= -->
 
 <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
 <!-- =========================
      MAIN
+========================= -->
 
         <div class="page-header">
 
