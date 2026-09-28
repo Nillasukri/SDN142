@@ -3,6 +3,9 @@ session_start();
 
 require_once "config/koneksi.php";
 
+/* =========================================================
+   FUNGSI ESCAPE
+========================================================= */
 if (!function_exists('e')) {
     function e($value)
     {
@@ -10,41 +13,54 @@ if (!function_exists('e')) {
     }
 }
 
+/* =========================================================
+   PENANDA HALAMAN AKTIF
+========================================================= */
 $halamanAktif = 'profil.php';
 
-/* =========================
+/* =========================================================
    DATA DEFAULT
-========================= */
+========================================================= */
 $dataProfil = [
-    'nama_sekolah'         => 'Nama Sekolah',
-    'alamat'               => '',
-    'desa'                 => '',
-    'kecamatan'            => '',
-    'kabupaten'            => '',
-    'provinsi'             => '',
-    'sejarah'              => '',
-    'visi'                 => '',
-    'misi'                 => '',
-    'tujuan'               => '',
-    'nama_kepala_sekolah'  => '',
-    'nip_kepala_sekolah'   => '',
-    'foto_kepala_sekolah'  => '',
-    'logo'                 => ''
+    'nama_sekolah'        => 'Nama Sekolah',
+    'alamat'              => '',
+    'desa'                => '',
+    'kecamatan'           => '',
+    'kabupaten'           => '',
+    'provinsi'            => '',
+    'sejarah'             => '',
+    'visi'                => '',
+    'misi'                => '',
+    'tujuan'              => '',
+    'nama_kepala_sekolah' => '',
+    'nip_kepala_sekolah'  => '',
+    'foto_kepala_sekolah' => '',
+    'logo'                => ''
 ];
 
-/* =========================
+/* =========================================================
    AMBIL DATA PROFIL
-========================= */
+   Menggunakan db_* agar kompatibel dengan:
+   - MySQL / XAMPP
+   - Supabase / Vercel
+========================================================= */
 $result = db_query(
     $koneksi,
     "SELECT * FROM profil LIMIT 1"
 );
 
-if ($result && mysqli_num_rows($result) > 0) {
-    $row = mysqli_fetch_assoc($result);
-    $dataProfil = array_merge($dataProfil, $row);
+if ($result && db_num_rows($result) > 0) {
+
+    $row = db_fetch_assoc($result);
+
+    if (is_array($row)) {
+        $dataProfil = array_merge($dataProfil, $row);
+    }
 }
 
+/* =========================================================
+   LAYOUT PUBLIK
+========================================================= */
 require_once "layouts/publik/kepala.php";
 require_once "layouts/publik/navbar.php";
 ?>
@@ -56,6 +72,9 @@ require_once "layouts/publik/navbar.php";
         padding-bottom: 60px;
     }
 
+    /* =====================================================
+       HERO
+    ===================================================== */
     .profil-hero {
         position: relative;
         background: linear-gradient(
@@ -63,7 +82,7 @@ require_once "layouts/publik/navbar.php";
             #164f63,
             #246b7e
         );
-        color: white;
+        color: #ffffff;
         padding: 70px 20px;
         text-align: center;
     }
@@ -80,12 +99,26 @@ require_once "layouts/publik/navbar.php";
         opacity: 0.9;
     }
 
+    .logo-sekolah {
+        width: 120px;
+        height: 120px;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto 20px;
+    }
+
+    /* =====================================================
+       CONTAINER
+    ===================================================== */
     .profil-container {
         width: 90%;
         max-width: 1100px;
         margin: 40px auto 0;
     }
 
+    /* =====================================================
+       CARD
+    ===================================================== */
     .profil-card {
         background: #ffffff;
         border-radius: 16px;
@@ -103,11 +136,14 @@ require_once "layouts/publik/navbar.php";
     }
 
     .profil-card p {
-        color: #555;
+        color: #555555;
         line-height: 1.8;
         margin: 0 0 12px;
     }
 
+    /* =====================================================
+       IDENTITAS SEKOLAH
+    ===================================================== */
     .identitas-table {
         width: 100%;
         border-collapse: collapse;
@@ -133,6 +169,9 @@ require_once "layouts/publik/navbar.php";
         color: #164f63;
     }
 
+    /* =====================================================
+       KEPALA SEKOLAH
+    ===================================================== */
     .kepala-sekolah {
         display: flex;
         align-items: center;
@@ -158,6 +197,9 @@ require_once "layouts/publik/navbar.php";
         margin: 5px 0;
     }
 
+    /* =====================================================
+       VISI MISI
+    ===================================================== */
     .visi-misi {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -181,27 +223,26 @@ require_once "layouts/publik/navbar.php";
     .misi-box ul {
         margin: 0;
         padding-left: 22px;
-        color: #555;
+        color: #555555;
         line-height: 1.8;
     }
 
-    .logo-sekolah {
-        width: 120px;
-        height: 120px;
-        object-fit: contain;
-        display: block;
-        margin: 0 auto 20px;
-    }
-
+    /* =====================================================
+       LOKASI
+    ===================================================== */
     .lokasi-box {
         background: #f7fafb;
         padding: 20px;
         border-radius: 12px;
-        color: #555;
+        color: #555555;
         line-height: 1.8;
     }
 
+    /* =====================================================
+       RESPONSIVE TABLET
+    ===================================================== */
     @media (max-width: 768px) {
+
         .profil-hero {
             padding: 55px 20px;
         }
@@ -233,7 +274,11 @@ require_once "layouts/publik/navbar.php";
         }
     }
 
+    /* =====================================================
+       RESPONSIVE HP
+    ===================================================== */
     @media (max-width: 480px) {
+
         .profil-hero h1 {
             font-size: 26px;
         }
@@ -267,14 +312,19 @@ require_once "layouts/publik/navbar.php";
 
 <div class="profil-page">
 
-    <!-- HERO -->
+    <!-- =====================================================
+         HERO PROFIL
+    ====================================================== -->
     <section class="profil-hero">
+
         <?php if (!empty($dataProfil['logo'])): ?>
+
             <img
                 src="<?= e($dataProfil['logo']); ?>"
                 alt="Logo Sekolah"
                 class="logo-sekolah"
             >
+
         <?php endif; ?>
 
         <h1>Profil Sekolah</h1>
@@ -282,49 +332,73 @@ require_once "layouts/publik/navbar.php";
         <p>
             <?= e($dataProfil['nama_sekolah']); ?>
         </p>
+
     </section>
+
 
     <div class="profil-container">
 
-        <!-- IDENTITAS SEKOLAH -->
+        <!-- =================================================
+             IDENTITAS SEKOLAH
+        ================================================== -->
         <section class="profil-card">
+
             <h2>Identitas Sekolah</h2>
 
             <table class="identitas-table">
+
                 <tr>
                     <td>Nama Sekolah</td>
-                    <td><?= e($dataProfil['nama_sekolah']); ?></td>
+                    <td>
+                        <?= e($dataProfil['nama_sekolah']); ?>
+                    </td>
                 </tr>
 
                 <tr>
                     <td>Alamat</td>
-                    <td><?= e($dataProfil['alamat']); ?></td>
+                    <td>
+                        <?= e($dataProfil['alamat']); ?>
+                    </td>
                 </tr>
 
                 <tr>
                     <td>Desa / Kelurahan</td>
-                    <td><?= e($dataProfil['desa']); ?></td>
+                    <td>
+                        <?= e($dataProfil['desa']); ?>
+                    </td>
                 </tr>
 
                 <tr>
                     <td>Kecamatan</td>
-                    <td><?= e($dataProfil['kecamatan']); ?></td>
+                    <td>
+                        <?= e($dataProfil['kecamatan']); ?>
+                    </td>
                 </tr>
 
                 <tr>
                     <td>Kabupaten</td>
-                    <td><?= e($dataProfil['kabupaten']); ?></td>
+                    <td>
+                        <?= e($dataProfil['kabupaten']); ?>
+                    </td>
                 </tr>
 
                 <tr>
                     <td>Provinsi</td>
-                    <td><?= e($dataProfil['provinsi']); ?></td>
+                    <td>
+                        <?= e($dataProfil['provinsi']); ?>
+                    </td>
                 </tr>
+
             </table>
+
         </section>
 
-        <!-- KEPALA SEKOLAH -->
+
+        <!-- =================================================
+             KEPALA SEKOLAH
+        ================================================== -->
         <section class="profil-card">
+
             <h2>Kepala Sekolah</h2>
 
             <div class="kepala-sekolah">
@@ -343,6 +417,7 @@ require_once "layouts/publik/navbar.php";
 
                 <?php endif; ?>
 
+
                 <div class="kepala-info">
 
                     <h3>
@@ -350,91 +425,135 @@ require_once "layouts/publik/navbar.php";
                     </h3>
 
                     <?php if (!empty($dataProfil['nip_kepala_sekolah'])): ?>
+
                         <p>
                             <strong>NIP:</strong>
                             <?= e($dataProfil['nip_kepala_sekolah']); ?>
                         </p>
+
                     <?php endif; ?>
 
                 </div>
 
             </div>
+
         </section>
 
-        <!-- SEJARAH -->
+
+        <!-- =================================================
+             SEJARAH SEKOLAH
+        ================================================== -->
         <section class="profil-card">
+
             <h2>Sejarah Sekolah</h2>
 
             <p>
                 <?= nl2br(e($dataProfil['sejarah'])); ?>
             </p>
+
         </section>
 
-        <!-- VISI MISI -->
+
+        <!-- =================================================
+             VISI DAN MISI
+        ================================================== -->
         <section class="profil-card">
+
             <h2>Visi dan Misi</h2>
 
             <div class="visi-misi">
 
                 <div class="visi-box">
+
                     <h3>Visi</h3>
 
                     <p>
                         <?= nl2br(e($dataProfil['visi'])); ?>
                     </p>
+
                 </div>
 
+
                 <div class="misi-box">
+
                     <h3>Misi</h3>
 
                     <div>
                         <?= nl2br(e($dataProfil['misi'])); ?>
                     </div>
+
                 </div>
 
             </div>
+
         </section>
 
-        <!-- TUJUAN -->
+
+        <!-- =================================================
+             TUJUAN SEKOLAH
+        ================================================== -->
         <section class="profil-card">
+
             <h2>Tujuan Sekolah</h2>
 
             <p>
                 <?= nl2br(e($dataProfil['tujuan'])); ?>
             </p>
+
         </section>
 
-        <!-- LOKASI -->
+
+        <!-- =================================================
+             LOKASI SEKOLAH
+        ================================================== -->
         <section class="profil-card">
+
             <h2>Lokasi Sekolah</h2>
 
             <div class="lokasi-box">
 
                 <?php if (!empty($dataProfil['alamat'])): ?>
+
                     <?= e($dataProfil['alamat']); ?><br>
+
                 <?php endif; ?>
+
 
                 <?php if (!empty($dataProfil['desa'])): ?>
+
                     <?= e($dataProfil['desa']); ?>,
+
                 <?php endif; ?>
+
 
                 <?php if (!empty($dataProfil['kecamatan'])): ?>
+
                     <?= e($dataProfil['kecamatan']); ?>,
+
                 <?php endif; ?>
+
 
                 <?php if (!empty($dataProfil['kabupaten'])): ?>
+
                     <?= e($dataProfil['kabupaten']); ?>,
+
                 <?php endif; ?>
 
+
                 <?php if (!empty($dataProfil['provinsi'])): ?>
+
                     <?= e($dataProfil['provinsi']); ?>
+
                 <?php endif; ?>
 
             </div>
+
         </section>
 
     </div>
+
 </div>
+
 
 <?php
 require_once "layouts/publik/kaki.php";
