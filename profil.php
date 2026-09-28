@@ -712,7 +712,7 @@ require_once "layouts/publik/navbar.php";
         <?php if (!empty($dataProfil['logo'])): ?>
 
             <img
-                src="<?= e($dataProfil['logo']); ?>"
+                src="<?= e('uploads/' . ltrim($dataProfil['logo'], '/')); ?>"
                 alt="Logo Sekolah"
                 class="logo-sekolah"
             >
@@ -849,7 +849,7 @@ require_once "layouts/publik/navbar.php";
                 <?php if (!empty($dataProfil['foto_kepala_sekolah'])): ?>
 
                     <img
-                        src="<?= e($dataProfil['foto_kepala_sekolah']); ?>"
+                        src="<?= e('uploads/' . ltrim($dataProfil['foto_kepala_sekolah'], '/')); ?>"
                         alt="Foto Kepala Sekolah"
                         class="kepala-foto"
                     >
@@ -978,6 +978,61 @@ require_once "layouts/publik/navbar.php";
             <div class="tujuan-box">
 
                 <?= tampilDaftar($dataProfil['tujuan']); ?>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             LOKASI SEKOLAH
+        ================================================== -->
+
+        <section class="profil-card">
+
+            <h2>
+                Lokasi Sekolah
+            </h2>
+
+
+            <div class="lokasi-box">
+
+
+                <?php if (!empty($dataProfil['alamat'])): ?>
+
+                    <?= e($dataProfil['alamat']); ?><br>
+
+                <?php endif; ?>
+
+
+                <?php if (!empty($dataProfil['desa'])): ?>
+
+                    <?= e($dataProfil['desa']); ?>,
+
+                <?php endif; ?>
+
+
+                <?php if (!empty($dataProfil['kecamatan'])): ?>
+
+                    <?= e($dataProfil['kecamatan']); ?>,
+
+                <?php endif; ?>
+
+
+                <?php if (!empty($dataProfil['kabupaten'])): ?>
+
+                    <?= e($dataProfil['kabupaten']); ?>,
+
+                <?php endif; ?>
+
+
+                <?php if (!empty($dataProfil['provinsi'])): ?>
+
+                    <?= e($dataProfil['provinsi']); ?>
+
+                <?php endif; ?>
+
 
             </div>
 
