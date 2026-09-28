@@ -985,58 +985,6 @@ require_once "layouts/publik/navbar.php";
 
 
 
-        <!-- =================================================
-             LOKASI SEKOLAH
-        ================================================== -->
-
-        <section class="profil-card">
-
-            <h2>
-                Lokasi Sekolah
-            </h2>
-
-
-            <div class="lokasi-box">
-
-
-                <?php if (!empty($dataProfil['alamat'])): ?>
-
-                    <?= e($dataProfil['alamat']); ?><br>
-
-                <?php endif; ?>
-
-
-                <?php if (!empty($dataProfil['desa'])): ?>
-
-                    <?= e($dataProfil['desa']); ?>,
-
-                <?php endif; ?>
-
-
-                <?php if (!empty($dataProfil['kecamatan'])): ?>
-
-                    <?= e($dataProfil['kecamatan']); ?>,
-
-                <?php endif; ?>
-
-
-                <?php if (!empty($dataProfil['kabupaten'])): ?>
-
-                    <?= e($dataProfil['kabupaten']); ?>,
-
-                <?php endif; ?>
-
-
-                <?php if (!empty($dataProfil['provinsi'])): ?>
-
-                    <?= e($dataProfil['provinsi']); ?>
-
-                <?php endif; ?>
-
-
-            </div>
-
-        </section>
 
 
     </div>
