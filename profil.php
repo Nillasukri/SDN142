@@ -709,17 +709,6 @@ require_once "layouts/publik/navbar.php";
 
     <section class="profil-hero">
 
-        <?php if (!empty($dataProfil['logo'])): ?>
-
-            <img
-                src="<?= e('uploads/' . ltrim($dataProfil['logo'], '/')); ?>"
-                alt="Logo Sekolah"
-                class="logo-sekolah"
-            >
-
-        <?php endif; ?>
-
-
         <h1>
             Profil Sekolah
         </h1>
