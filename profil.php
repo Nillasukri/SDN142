@@ -3,9 +3,6 @@ session_start();
 
 require_once "config/koneksi.php";
 
-/* =========================================================
-   FUNGSI ESCAPE
-========================================================= */
 if (!function_exists('e')) {
     function e($value)
     {
@@ -13,14 +10,8 @@ if (!function_exists('e')) {
     }
 }
 
-/* =========================================================
-   PENANDA HALAMAN AKTIF
-========================================================= */
 $halamanAktif = 'profil.php';
 
-/* =========================================================
-   DATA DEFAULT
-========================================================= */
 $dataProfil = [
     'nama_sekolah'        => 'Nama Sekolah',
     'alamat'              => '',
@@ -38,19 +29,12 @@ $dataProfil = [
     'logo'                => ''
 ];
 
-/* =========================================================
-   AMBIL DATA PROFIL
-   Menggunakan db_* agar kompatibel dengan:
-   - MySQL / XAMPP
-   - Supabase / Vercel
-========================================================= */
 $result = db_query(
     $koneksi,
     "SELECT * FROM profil LIMIT 1"
 );
 
 if ($result && db_num_rows($result) > 0) {
-
     $row = db_fetch_assoc($result);
 
     if (is_array($row)) {
@@ -58,9 +42,6 @@ if ($result && db_num_rows($result) > 0) {
     }
 }
 
-/* =========================================================
-   LAYOUT PUBLIK
-========================================================= */
 require_once "layouts/publik/kepala.php";
 require_once "layouts/publik/navbar.php";
 ?>
@@ -72,9 +53,10 @@ require_once "layouts/publik/navbar.php";
         padding-bottom: 60px;
     }
 
-    /* =====================================================
-       HERO
-    ===================================================== */
+    /* ================================
+       HERO PROFIL
+    ================================= */
+
     .profil-hero {
         position: relative;
         background: linear-gradient(
@@ -107,18 +89,20 @@ require_once "layouts/publik/navbar.php";
         margin: 0 auto 20px;
     }
 
-    /* =====================================================
+    /* ================================
        CONTAINER
-    ===================================================== */
+    ================================= */
+
     .profil-container {
         width: 90%;
         max-width: 1100px;
         margin: 40px auto 0;
     }
 
-    /* =====================================================
+    /* ================================
        CARD
-    ===================================================== */
+    ================================= */
+
     .profil-card {
         background: #ffffff;
         border-radius: 16px;
@@ -141,9 +125,10 @@ require_once "layouts/publik/navbar.php";
         margin: 0 0 12px;
     }
 
-    /* =====================================================
+    /* ================================
        IDENTITAS SEKOLAH
-    ===================================================== */
+    ================================= */
+
     .identitas-table {
         width: 100%;
         border-collapse: collapse;
@@ -169,9 +154,10 @@ require_once "layouts/publik/navbar.php";
         color: #164f63;
     }
 
-    /* =====================================================
+    /* ================================
        KEPALA SEKOLAH
-    ===================================================== */
+    ================================= */
+
     .kepala-sekolah {
         display: flex;
         align-items: center;
@@ -197,39 +183,65 @@ require_once "layouts/publik/navbar.php";
         margin: 5px 0;
     }
 
-    /* =====================================================
-       VISI MISI
-    ===================================================== */
+    /* ================================
+       VISI & MISI
+    ================================= */
+
     .visi-misi {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 25px;
+        gap: 18px;
     }
 
     .visi-box,
     .misi-box {
         background: #f7fafb;
         border-radius: 12px;
-        padding: 25px;
+        padding: 20px 22px;
+        border: 1px solid #e7eef1;
     }
 
     .visi-box h3,
     .misi-box h3 {
-        margin: 0 0 12px;
+        margin: 0 0 10px;
         color: #164f63;
+        font-size: 18px;
+        font-weight: 700;
     }
 
-    .misi-box ol,
-    .misi-box ul {
+    .visi-box p,
+    .misi-box div {
         margin: 0;
-        padding-left: 22px;
         color: #555555;
-        line-height: 1.8;
+        font-size: 14px;
+        line-height: 1.7;
+        text-align: justify;
     }
 
-    /* =====================================================
+    /* ================================
+       TUJUAN SEKOLAH
+    ================================= */
+
+    .tujuan-box {
+        background: #f7fafb;
+        border-radius: 12px;
+        padding: 20px 22px;
+        border: 1px solid #e7eef1;
+    }
+
+    .tujuan-box p {
+        margin: 0;
+        color: #555555;
+        font-size: 14px;
+        line-height: 1.7;
+        text-align: justify;
+        white-space: pre-line;
+    }
+
+    /* ================================
        LOKASI
-    ===================================================== */
+    ================================= */
+
     .lokasi-box {
         background: #f7fafb;
         padding: 20px;
@@ -238,9 +250,10 @@ require_once "layouts/publik/navbar.php";
         line-height: 1.8;
     }
 
-    /* =====================================================
+    /* ================================
        RESPONSIVE TABLET
-    ===================================================== */
+    ================================= */
+
     @media (max-width: 768px) {
 
         .profil-hero {
@@ -272,11 +285,13 @@ require_once "layouts/publik/navbar.php";
         .visi-misi {
             grid-template-columns: 1fr;
         }
+
     }
 
-    /* =====================================================
+    /* ================================
        RESPONSIVE HP
-    ===================================================== */
+    ================================= */
+
     @media (max-width: 480px) {
 
         .profil-hero h1 {
@@ -307,14 +322,34 @@ require_once "layouts/publik/navbar.php";
             padding-top: 3px;
             padding-bottom: 12px;
         }
+
+        .visi-box,
+        .misi-box,
+        .tujuan-box {
+            padding: 17px 18px;
+        }
+
+        .visi-box h3,
+        .misi-box h3 {
+            font-size: 17px;
+        }
+
+        .visi-box p,
+        .misi-box div,
+        .tujuan-box p {
+            font-size: 13.5px;
+            line-height: 1.65;
+        }
+
     }
 </style>
 
 <div class="profil-page">
 
-    <!-- =====================================================
-         HERO PROFIL
-    ====================================================== -->
+    <!-- ================================
+         HERO
+    ================================= -->
+
     <section class="profil-hero">
 
         <?php if (!empty($dataProfil['logo'])): ?>
@@ -338,9 +373,10 @@ require_once "layouts/publik/navbar.php";
 
     <div class="profil-container">
 
-        <!-- =================================================
+        <!-- ================================
              IDENTITAS SEKOLAH
-        ================================================== -->
+        ================================= -->
+
         <section class="profil-card">
 
             <h2>Identitas Sekolah</h2>
@@ -394,9 +430,10 @@ require_once "layouts/publik/navbar.php";
         </section>
 
 
-        <!-- =================================================
+        <!-- ================================
              KEPALA SEKOLAH
-        ================================================== -->
+        ================================= -->
+
         <section class="profil-card">
 
             <h2>Kepala Sekolah</h2>
@@ -440,9 +477,10 @@ require_once "layouts/publik/navbar.php";
         </section>
 
 
-        <!-- =================================================
+        <!-- ================================
              SEJARAH SEKOLAH
-        ================================================== -->
+        ================================= -->
+
         <section class="profil-card">
 
             <h2>Sejarah Sekolah</h2>
@@ -454,14 +492,17 @@ require_once "layouts/publik/navbar.php";
         </section>
 
 
-        <!-- =================================================
+        <!-- ================================
              VISI DAN MISI
-        ================================================== -->
+        ================================= -->
+
         <section class="profil-card">
 
             <h2>Visi dan Misi</h2>
 
             <div class="visi-misi">
+
+                <!-- VISI -->
 
                 <div class="visi-box">
 
@@ -473,6 +514,8 @@ require_once "layouts/publik/navbar.php";
 
                 </div>
 
+
+                <!-- MISI -->
 
                 <div class="misi-box">
 
@@ -489,23 +532,29 @@ require_once "layouts/publik/navbar.php";
         </section>
 
 
-        <!-- =================================================
+        <!-- ================================
              TUJUAN SEKOLAH
-        ================================================== -->
+        ================================= -->
+
         <section class="profil-card">
 
             <h2>Tujuan Sekolah</h2>
 
-            <p>
-                <?= nl2br(e($dataProfil['tujuan'])); ?>
-            </p>
+            <div class="tujuan-box">
+
+                <p>
+                    <?= e($dataProfil['tujuan']); ?>
+                </p>
+
+            </div>
 
         </section>
 
 
-        <!-- =================================================
+        <!-- ================================
              LOKASI SEKOLAH
-        ================================================== -->
+        ================================= -->
+
         <section class="profil-card">
 
             <h2>Lokasi Sekolah</h2>
